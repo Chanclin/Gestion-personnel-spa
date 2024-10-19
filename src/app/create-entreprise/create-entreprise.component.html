@@ -1,5 +1,5 @@
 <div class="col-md-8 offset-md-3">
-    <h3>Create entreprise</h3>
+    <h3>Creer une entreprise</h3>
     <form #entrepriseForm="ngForm" (ngSubmit)="onSubmit()">
         <div class="form-group">
             <label>Nom entreprise</label>
@@ -18,7 +18,7 @@
             [(ngModel)]="entreprises.adresseEntreprise" name="adresseEntreprise">
             <div *ngIf="entrepriseForm.submitted && !entreprises.adresseEntreprise" class="text-danger">
                 L'adresse de l'entreprise est requise.
-              </div>
+              </div> 
         </div>
     
         <div class="form-group">
@@ -27,6 +27,8 @@
             [(ngModel)]="entreprises.emailEntreprise" name="emailEntreprise">
             <div *ngIf="entrepriseForm.submitted && !entreprises.emailEntreprise" class="text-danger">
                 Un email valide est requis.
+
+                
             </div><br>
 
        <button type="submit" class="btn btn-success">Valider</button>&nbsp;&nbsp;

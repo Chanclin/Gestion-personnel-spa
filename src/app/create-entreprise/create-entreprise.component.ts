@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import { Entreprise } from '../models/entreprise';
 import { EntrepriseService } from '../services/entreprise.service';
 import { Router } from '@angular/router';
+import { DirectionService } from '../services/direction.service';
+
 @Component({
   selector: 'app-create-entreprise',
   standalone: true,
@@ -15,6 +17,9 @@ import { Router } from '@angular/router';
 })
 export class CreateEntrepriseComponent {
   entreprises:Entreprise = new Entreprise();
+
+  
+
 
   constructor(private entrepriseService:EntrepriseService, private route:Router){
 
@@ -44,12 +49,13 @@ export class CreateEntrepriseComponent {
   }
 
   onCancel() {
-    this.goToEntrepriseList(); // Redirige vers la liste des entreprises sans rien créer
+    this.goToEntrepriseList(); 
   }
 
 
   ngOnInit(): void{
 
+    
   }
   onsubmit(){
     

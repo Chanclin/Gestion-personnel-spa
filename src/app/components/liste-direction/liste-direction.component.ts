@@ -11,7 +11,7 @@ import { DirectionService } from '../../services/direction.service';
   styleUrls: ['./liste-direction.component.css'],
 })
 export class ListeDirectionComponent {
-  directions: Direction[] = []; // Définir explicitement comme tableau de Direction
+  directions: Direction[] = [];
   errorMessage: string | null = null;
 
   constructor(private directionService: DirectionService) {}

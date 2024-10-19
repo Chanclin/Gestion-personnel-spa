@@ -6,6 +6,7 @@ import { ListeEntrepriseComponent } from './services/liste-entreprise/liste-entr
 import { FormsModule, NgModel } from '@angular/forms';
 import { DetailEntrepriseComponent } from './detail-entreprise/detail-entreprise.component';
 import { DeleteEntrepriseComponent } from './delete-entreprise/delete-entreprise.component';
+import { DirectionService } from './services/direction.service';
 
 
 
@@ -14,7 +15,7 @@ ListeEntrepriseComponent
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [ListeEntrepriseComponent,CreateEntrepriseComponent,RouterOutlet,RouterLink,RouterLinkActive,FormsModule,DeleteEntrepriseComponent],
+  imports: [ListeEntrepriseComponent,CreateEntrepriseComponent,RouterOutlet,RouterLink,RouterLinkActive,FormsModule,DeleteEntrepriseComponent,ListeDirectionComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
