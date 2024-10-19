@@ -1,3 +1,5 @@
+ <p>{{message}}</p>
+ <h2>Liste des directions</h2>
 <table *ngIf="directions.length > 0" class="table table-striped">
   <thead>
     <tr>
@@ -8,8 +10,8 @@
   </thead>
   <tbody>
     <tr *ngFor="let direction of directions">
-      <td>{{ direction.identifiantDirection }}</td>
-      <td>{{ direction.nom }}</td>
+      <td>{{ direction.idDirection}}</td>
+      <td>{{ direction.nomDirection }}</td>
       <td>{{ direction.description }}</td>
     </tr>
   </tbody>
