@@ -2,13 +2,14 @@ import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Entreprise } from '../models/entreprise';
 import { EntrepriseService } from '../services/entreprise.service';
-import { FormsModule} from '@angular/forms';
+import { FormsModule, NgModel} from '@angular/forms';
 
 @Component({
   selector: 'app-update-entreprise',
   templateUrl: './update-entreprise.component.html',
   styleUrl: './update-entreprise.component.css',
-  
+  standalone:true,
+  imports :[FormsModule],
 
 })
 export class UpdateEntrepriseComponent {
@@ -31,6 +32,10 @@ export class UpdateEntrepriseComponent {
 
   goToEntrepriseList(){
     this.router.navigate(['/entreprises'])
+  }
+
+  onCancel() {
+    this.goToEntrepriseList(); // Redirige vers la liste des entreprises sans rien créer
   }
   }
 

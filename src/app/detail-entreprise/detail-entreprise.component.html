@@ -1,99 +1,31 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
 <div class="container bootdey flex-grow-1 container-p-y">
+  <h3>Detail de l'entreprise</h3><br>
+  <div class="card mb-4">
+    <div class="card-body">
+      <table class="table user-view-table m-0">
+        <tbody>
+          <tr>
+            <td>ID: <b>{{entreprise.idEntreprise}}</b></td>
+          </tr>
+          <tr>
+            <td>Nom entreprise: <b>{{entreprise.nomEntreprise}}</b></td>
+          </tr>
 
-            <div class="media align-items-center py-3 mb-3">
-              <img src="https://bootdey.com/img/Content/avatar/avatar1.png" alt="" class="d-block ui-w-100 rounded-circle">
-              <div class="media-body ml-4">
-                <h4 class="font-weight-bold mb-0">John Doe <span class="text-muted font-weight-normal">&#64;johndoe</span></h4>
-                <div class="text-muted mb-2">ID: 3425433</div>
-                <a href="javascript:void(0)" class="btn btn-primary btn-sm">Edit</a>&nbsp;
-                <a href="javascript:void(0)" class="btn btn-default btn-sm">Profile</a>&nbsp;
-                <a href="javascript:void(0)" class="btn btn-default btn-sm icon-btn"><i class="fa fa-mail"></i></a>
-              </div>
-            </div>
+          <tr>
+            <td>Address: <b>{{entreprise.adresseEntreprise}}</b></td>
+          </tr>
+          <tr>
+            <td>Email: <b>{{entreprise.emailEntreprise}}</b></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <app-liste-direction [directions]="entreprise.directions"   [message]="message"></app-liste-direction>
+    </div>
 
-            <div class="card mb-4">
-              <div class="card-body">
-                <table class="table user-view-table m-0">
-                  <tbody>
-                    <tr>
-                      <td>ID: <b>{{entreprise.idEntreprise}}</b></td>
-                      <td>01</td>
-                    </tr>
-                    <tr>
-                      <td>Nom entreprise:</td>
-                      <td>IPG</td>
-                    </tr>
-                    
-                    <tr>
-                      <td><Address></Address>:</td>
-                      <td>Dakar</td>
-                    </tr>
-                    <tr>
-                      <td>Email:</td>
-                      <td>Email</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <hr class="border-light m-0">
-              
+  </div>
 
-            <div class="card">
-              <div class="row no-gutters row-bordered">
-                <div class="d-flex col-md align-items-center">
-                  <a href="javascript:void(0)" class="card-body d-block text-body">
-                    <div class="text-muted small line-height-1">Posts</div>
-                    <div class="text-xlarge">125</div>
-                  </a>
-                </div>
-                <div class="d-flex col-md align-items-center">
-                  <a href="javascript:void(0)" class="card-body d-block text-body">
-                    <div class="text-muted small line-height-1">Followers</div>
-                    <div class="text-xlarge">534</div>
-                  </a>
-                </div>
-                <div class="d-flex col-md align-items-center">
-                  <a href="javascript:void(0)" class="card-body d-block text-body">
-                    <div class="text-muted small line-height-1">Following</div>
-                    <div class="text-xlarge">236</div>
-                  </a>
-                </div>
-              </div>
-              <hr class="border-light m-0">
-              
 
-                <h6 class="mt-4 mb-3">Social links</h6>
-
-                <table class="table user-view-table m-0">
-                  <tbody>
-                    <tr>
-                      <td>Twitter:</td>
-                      <td><a href="javascript:void(0)">https://twitter.com/user</a></td>
-                    </tr>
-                    <tr>
-                      <td>Facebook:</td>
-                      <td><a href="javascript:void(0)">https://www.facebook.com/user</a></td>
-                    </tr>
-                    <tr>
-                      <td>Instagram:</td>
-                      <td><a href="javascript:void(0)">https://www.instagram.com/user</a></td>
-                    </tr>
-                  </tbody>
-                </table>
-
-                <h6 class="mt-4 mb-3">Contacts</h6>
-
-                <table class="table user-view-table m-0">
-                  <tbody>
-                    <tr>
-                      <td>Phone:</td>
-                      <td>+0 (123) 456 7891</td>
-                    </tr>
-                  </tbody>
-                </table>
-
-              </div>
-            </div>
-
-          </div>
+</div>

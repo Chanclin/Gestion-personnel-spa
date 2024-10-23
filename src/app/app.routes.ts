@@ -9,8 +9,8 @@ ListeEntrepriseComponent
 export const routes: Routes = [
     {path: 'entreprises', component: ListeEntrepriseComponent},
     {path:'create-entreprise',component:CreateEntrepriseComponent},
-    {path:'update-entreprise/:id',component:UpdateEntrepriseComponent},
-    {path: 'detail-entreprise/:id', component:DetailEntrepriseComponent},
+    {path:'update-entreprise/:idEntreprise',component:UpdateEntrepriseComponent},
+    {path: 'detail-Entreprise/:idEntreprise', component:DetailEntrepriseComponent},
     {path: '', redirectTo:'entreprises',pathMatch:'full'}
 
 

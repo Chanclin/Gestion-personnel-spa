@@ -1,1 +1,38 @@
-<p>create-entreprise works!</p>
+<div class="col-md-8 offset-md-3">
+    <h3>Creer une entreprise</h3>
+    <form #entrepriseForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label>Nom entreprise</label>
+            <input type="text" class="form-control" id="nomEntreprise"
+            [(ngModel)]="entreprises.nomEntreprise" name="nomEntreprise">
+             <div *ngIf="entrepriseForm.submitted && !entreprises.nomEntreprise" class="text-danger">
+        Le nom de l'entreprise est requis.
+      </div>
+    
+    
+        </div>
+    
+        <div class="form-group">
+            <label>Adresse</label>
+            <input type="text" class="form-control" id="adresseEntreprise"
+            [(ngModel)]="entreprises.adresseEntreprise" name="adresseEntreprise">
+            <div *ngIf="entrepriseForm.submitted && !entreprises.adresseEntreprise" class="text-danger">
+                L'adresse de l'entreprise est requise.
+              </div> 
+        </div>
+    
+        <div class="form-group">
+            <label>Email</label>
+            <input type="text" class="form-control" id="emailEntreprise"
+            [(ngModel)]="entreprises.emailEntreprise" name="emailEntreprise">
+            <div *ngIf="entrepriseForm.submitted && !entreprises.emailEntreprise" class="text-danger">
+                Un email valide est requis.
+
+                
+            </div><br>
+
+       <button type="submit" class="btn btn-success">Valider</button>&nbsp;&nbsp;
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">Annuler</button>
+    
+    
+    </div>
