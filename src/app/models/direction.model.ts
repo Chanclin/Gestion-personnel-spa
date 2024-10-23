@@ -1,5 +1,5 @@
 export interface Direction {
-  identifiantDirection: number;
-  nom: string;
+  idDirection: number;
+  nomDirection: string;
   description: string;
 }

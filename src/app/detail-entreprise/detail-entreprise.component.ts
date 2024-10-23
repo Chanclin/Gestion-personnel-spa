@@ -2,11 +2,15 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Entreprise } from '../models/entreprise';
 import { EntrepriseService } from '../services/entreprise.service';
+import { ListeDirectionComponent } from '../components/liste-direction/liste-direction.component';
+
 
 @Component({
   selector: 'app-detail-entreprise',
   templateUrl: './detail-entreprise.component.html',
-  styleUrl: './detail-entreprise.component.css'
+  styleUrl: './detail-entreprise.component.css',
+  standalone: true,
+  imports:[ListeDirectionComponent]
 })
 export class DetailEntrepriseComponent {
 
@@ -19,6 +23,7 @@ ngOnInit():void{
   this.idEntreprise=this.route.snapshot.params['idEntreprise'];
   this.entrepriseService.getEntrepriseById(this.idEntreprise).subscribe(data=>{
     this.entreprise=data;
+    console.log('entreprise: '+this.entreprise);
   })
 }
 }
