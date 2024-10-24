@@ -15,4 +15,6 @@ import { ListeDirectionComponent } from '../../components/liste-direction/liste-
 })
 export class HomeComponent {
   title = 'Gestion_Entreprise';
+
+  
 }
