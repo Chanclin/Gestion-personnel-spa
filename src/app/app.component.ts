@@ -20,5 +20,5 @@ ListeEntrepriseComponent
   styleUrl: './app.component.css',
 })
 export class AppComponent {
-  title = 'Gestion_Entreprise';
+  
 }
