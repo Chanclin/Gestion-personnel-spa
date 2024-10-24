@@ -4,14 +4,29 @@ import { CreateEntrepriseComponent } from './create-entreprise/create-entreprise
 import { ListeEntrepriseComponent } from './services/liste-entreprise/liste-entreprise.component';
 import { UpdateEntrepriseComponent } from './update-entreprise/update-entreprise.component';
 import { DetailEntrepriseComponent } from './detail-entreprise/detail-entreprise.component';
+import { LoginComponent } from './page/login/login.component';
+import { RegisterComponent } from './page/register/register.component';
+import { NotfoundComponent } from './page/notfound/notfound.component';
 
 ListeEntrepriseComponent
 export const routes: Routes = [
-    {path: 'entreprises', component: ListeEntrepriseComponent},
-    {path:'create-entreprise',component:CreateEntrepriseComponent},
-    {path:'update-entreprise/:idEntreprise',component:UpdateEntrepriseComponent},
-    {path: 'detail-Entreprise/:idEntreprise', component:DetailEntrepriseComponent},
-    {path: '', redirectTo:'entreprises',pathMatch:'full'}
+    {
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full',
+      },
+      {
+        path: 'login',
+        component: LoginComponent,
+      },
+      {
+        path: 'register',
+        component: RegisterComponent,
+      },
+      {
+        path: '**',
+        component: NotfoundComponent,
+      },
 
 
 ];
