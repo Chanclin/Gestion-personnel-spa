@@ -9,7 +9,7 @@ import { Entreprise } from '../models/entreprise';
 })
 export class EntrepriseService {
   
-  private apiUrl = "http://localhost:8080/api/entreprises";
+  private apiUrl = "http://localhost:8086/api/entreprises";
   constructor(private httpClient:HttpClient ) { }
 
   getEntreprises(): Observable<Entreprise[]> {

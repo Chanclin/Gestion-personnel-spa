@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ProfilComponent } from "../../components/profil/profil.component";
+import { LienversComponent } from "../../components/lienvers/lienvers.component";
 
 @Component({
   selector: 'app-equipe',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, ProfilComponent, LienversComponent],
   templateUrl: './equipe.component.html',
   styleUrl: './equipe.component.css'
 })

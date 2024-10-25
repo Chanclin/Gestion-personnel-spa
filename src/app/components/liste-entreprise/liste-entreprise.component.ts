@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Entreprise } from '../../models/entreprise';
-import { EntrepriseService } from '../entreprise.service';
+import { EntrepriseService } from '../../services/entreprise.service';
 import { Router } from '@angular/router';
 
 @Component({

@@ -2,21 +2,28 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Utilisateur } from '../models/utilisateur.model'; // Mettez à jour ce chemin en fonction de l'emplacement de votre modèle
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private loginUrl = 'https://api/connexion'; // URL de votre API Spring Boot
+  private loginUrl = 'http://localhost:8086/api/connexion';
+  private registerUrl = 'http://localhost:8086/api/inscription'; 
 
   constructor(private http: HttpClient) {}
 
-  login(username: string, password: string): Observable<any> {
+  register(utilisateur: Utilisateur): Observable<any> {
+    const { id_utilisateur, ...data } = utilisateur; // Ignore id_utilisateur
+    return this.http.post(this.registerUrl, data); // Envoie les autres propriétés
+  }
+
+
+  login(username: string, password: string): Observable<boolean> {
     const loginData = { username, password };
-    return this.http.post(this.loginUrl, loginData).pipe(
-      map((response: any) => {
+    return this.http.post<any>(this.loginUrl, loginData).pipe(
+      map((response) => {
         if (response && response.token) {
-          // Stocker le jeton JWT localement
           localStorage.setItem('authToken', response.token);
           return true;
         }

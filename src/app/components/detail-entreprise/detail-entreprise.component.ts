@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Entreprise } from '../models/entreprise';
-import { EntrepriseService } from '../services/entreprise.service';
-import { ListeDirectionComponent } from '../components/liste-direction/liste-direction.component';
+import { Entreprise } from '../../models/entreprise';
+import { EntrepriseService } from '../../services/entreprise.service';
+import { ListeDirectionComponent } from '../liste-direction/liste-direction.component';
 import { CommonModule } from '@angular/common';
 
 @Component({

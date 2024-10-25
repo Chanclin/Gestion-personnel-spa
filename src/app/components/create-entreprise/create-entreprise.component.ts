@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
-import { Entreprise } from '../models/entreprise';
-import { EntrepriseService } from '../services/entreprise.service';
+import { Entreprise } from '../../models/entreprise';
+import { EntrepriseService } from '../../services/entreprise.service';
 import { Router } from '@angular/router';
-import { DirectionService } from '../services/direction.service';
+import { DirectionService } from '../../services/direction.service';
 
 @Component({
   selector: 'app-create-entreprise',

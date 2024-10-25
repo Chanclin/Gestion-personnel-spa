@@ -1,168 +1,201 @@
-<div class="tab-navigation">
-    <!-- Boutons pour basculer entre les onglets -->
-    <button (click)="selectTab('frontend')" [class.active]="activeTab === 'frontend'">Equipe Frontend</button>
-    <button (click)="selectTab('backend')" [class.active]="activeTab === 'backend'">Equipe Backend</button>
-  </div>
-  
-  <!-- Contenu pour l'équipe Frontend -->
-  <div *ngIf="activeTab === 'frontend'" class="tab-content">
-    <div class="font-[sans-serif] lg:max-w-5xl sm:max-w-2xl max-sm:max-w-sm mx-auto mt-4">
-        <h2 class="text-gray-800 text-3xl font-extrabold border-b-2 border-gray-800 inline-block">Our Team</h2>
+<div class="bg-gradient-to-t from-green-50 to-purple-50 w-full h-screen">
+  <!-- Lien vers la page Liste Entreprise -->
+    <div class="w-full flex justify-end px-4 pt-3">
+      <app-lienvers textlien="Continuer" [navigateTo]="'home'" />
+    </div>
 
-        <div class="grid lg:grid-cols-3 sm:grid-cols-2 gap-6 max-md:justify-center mt-12">
-            <div class="grid grid-cols-3 items-center bg-gray-100 p-4 rounded-lg relative">
-                <div class="col-span-2 min-h-[190px]">
-                    <img src="https://readymadeui.com/team-1.webp" class="rounded-lg" alt="Photo de l'équipe Frontend" />
-                </div>
+    <div class="tab-navigation flex flex-col gap-6 space-x-4 justify-center ">
 
-                <div class="bg-white rounded-lg p-4 absolute right-4 shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] ">
-                    <h4 class="text-gray-800 text-sm font-bold">John Doe</h4>
-                    <p class="text-[10px] text-gray-500 mt-0.5">United State</p>
-                    <p class="text-gray-800 mt-2 text-xs">Software Engineer</p>
-                </div>
+        <div class="w-full flex flex-col justify-center items-center gap-4 mt-6">
+            <h2 class="text-gray-800 text-3xl font-extrabold mb-2">Rencontrez notre équipe
+            </h2>
+            <div class="flex flex-col items-center">
+                <span>Rencontrez notre équipe de professionnels, prête à vous offrir </span>
+            <span>un développement 
+                backend solide et une interface frontend intuitive.</span>
             </div>
+        </div>
 
-            <div class="grid grid-cols-3 items-center bg-gray-100 p-4 rounded-lg relative">
-                <div class="col-span-2 min-h-[190px]">
-                    <img src="https://readymadeui.com/team-2.webp" alt="Photo de l'équipe Frontend" class="rounded-lg" />
-                </div>
 
-                <div class="bg-white rounded-lg p-4 absolute right-4 shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] ">
-                    <h4 class="text-gray-800 text-sm font-bold">Mark Adair</h4>
-                    <p class="text-[10px] text-gray-500 mt-0.5">United State</p>
-                    <p class="text-gray-800 mt-2 text-xs">Software Engineer</p>
-                </div>
-            </div>
+        <!-- Boutons pour basculer entre les onglets -->
+        <div class="flex justify-center gap-2 ">
+            <button
+          (click)="selectTab('frontend')"
+          [class.active]="activeTab === 'frontend'"
+          class="py-2 px-6 font-semibold rounded-lg transition-colors duration-300"
+          [ngClass]="{
+            'bg-blue-500 text-white': activeTab === 'frontend',
+            'bg-gray-200 text-gray-600 hover:bg-gray-300': activeTab !== 'frontend'
+          }"
+        >
+          Equipe Frontend
+        </button>
+        <button
+          (click)="selectTab('backend')"
+          [class.active]="activeTab === 'backend'"
+          class="py-2 px-6 font-semibold rounded-lg transition-colors duration-300"
+          [ngClass]="{
+            'bg-blue-500 text-white': activeTab === 'backend',
+            'bg-gray-200 text-gray-600 hover:bg-gray-300': activeTab !== 'backend'
+          }"
+        >
+          Equipe Backend
+        </button>
+        <button
+          (click)="selectTab('Devops')"
+          [class.active]="activeTab === 'Devops'"
+          class="py-2 px-6 font-semibold rounded-lg transition-colors duration-300"
+          [ngClass]="{
+            'bg-blue-500 text-white': activeTab === 'Devops',
+            'bg-gray-200 text-gray-600 hover:bg-gray-300': activeTab !== 'Devops'
+          }"
+        >
+          Devops
+        </button>
+        </div>
+    </div>
+      
+      
+      <!-- Contenu pour l'équipe Frontend -->
+      <div *ngIf="activeTab === 'frontend'" class="tab-content">
+        <!-- Contenu de l'équipe Frontend -->
+        <div class=" px-4 ">
+            <div class="lg:max-w-5xl sm:max-w-2xl mx-auto">
+                
+    
+                <div class="grid lg:grid-cols-3 sm:grid-cols-2 gap-8 max-sm:gap-12 max-md:justify-center mt-12">
+    
+                    <app-profil 
+    name="Lusa Kessy"  
+    position="Front-end développeur"  
+    imageUrl="https://readymadeui.com/team-2.webp">
+</app-profil>
 
-            <div class="grid grid-cols-3 items-center bg-gray-100 p-4 rounded-lg relative">
-                <div class="col-span-2 min-h-[190px]">
-                    <img src="https://readymadeui.com/team-3.webp" alt="Photo de l'équipe Frontend" class="rounded-lg" />
-                </div>
+<app-profil 
+    name="Fatou Thiam"  
+    position="Front-end développeur"  
+    imageUrl="https://readymadeui.com/team-2.webp">
+</app-profil>
 
-                <div class="bg-white rounded-lg p-4 absolute right-4 shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] ">
-                    <h4 class="text-gray-800 text-sm font-bold">Simon Konecki</h4>
-                    <p class="text-[10px] text-gray-500 mt-0.5">United State</p>
-                    <p class="text-gray-800 mt-2 text-xs">Software Engineer</p>
-                </div>
-            </div>
+<app-profil 
+    name="Dosa Soda"  
+    position="Front-end développeur"  
+    imageUrl="https://readymadeui.com/team-2.webp">
+</app-profil>
 
-            <div class="grid grid-cols-3 items-center bg-gray-100 p-4 rounded-lg relative">
-                <div class="col-span-2 min-h-[190px]">
-                    <img src="https://readymadeui.com/team-4.webp" alt="Photo de l'équipe Frontend" class="rounded-lg" />
-                </div>
+<app-profil 
+    name="Ismaila Dieng"  
+    position="Front-end développeur"  
+    imageUrl="https://readymadeui.com/team-2.webp">
+</app-profil>
 
-                <div class="bg-white rounded-lg p-4 absolute right-4 shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] ">
-                    <h4 class="text-gray-800 text-sm font-bold">Simon Konecki</h4>
-                    <p class="text-[10px] text-gray-500 mt-0.5">United State</p>
-                    <p class="text-gray-800 mt-2 text-xs">Software Engineer</p>
-                </div>
-            </div>
+<app-profil 
+    name="Ndeye Fatou"  
+    position="Front-end développeur"  
+    imageUrl="https://readymadeui.com/team-2.webp">
+</app-profil>
 
-            <div class="grid grid-cols-3 items-center bg-gray-100 p-4 rounded-lg relative">
-                <div class="col-span-2 min-h-[190px]">
-                    <img src="https://readymadeui.com/team-5.webp" alt="Photo de l'équipe Frontend" class="rounded-lg" />
-                </div>
+<app-profil 
+    name="R Indjai Quade"  
+    position="Front-end développeur"  
+    imageUrl="https://readymadeui.com/team-2.webp">
+</app-profil>
 
-                <div class="bg-white rounded-lg p-4 absolute right-4 shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] ">
-                    <h4 class="text-gray-800 text-sm font-bold">Alen</h4>
-                    <p class="text-[10px] text-gray-500 mt-0.5">United State</p>
-                    <p class="text-gray-800 mt-2 text-xs">Software Developer</p>
-                </div>
-            </div>
+<app-profil 
+    name="Fael Mila"  
+    position="Front-end développeur"  
+    imageUrl="https://readymadeui.com/team-2.webp">
+</app-profil>
 
-            <div class="grid grid-cols-3 items-center bg-gray-100 p-4 rounded-lg relative">
-                <div class="col-span-2 min-h-[190px]">
-                    <img src="https://readymadeui.com/team-6.webp" alt="Photo de l'équipe Frontend" class="rounded-lg" />
-                </div>
+<app-profil 
+    name="Fatoumata Ba"  
+    position="Front-end développeur"  
+    imageUrl="https://readymadeui.com/team-2.webp">
+</app-profil>
 
-                <div class="bg-white rounded-lg p-4 absolute right-4 shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] ">
-                    <h4 class="text-gray-800 text-sm font-bold">Sophia</h4>
-                    <p class="text-[10px] text-gray-500 mt-0.5">United State</p>
-                    <p class="text-gray-800 mt-2 text-xs">Web Designer</p>
                 </div>
             </div>
         </div>
-    </div>
-  </div>
-  
-  <!-- Contenu pour l'équipe Backend -->
-  <div *ngIf="activeTab === 'backend'" class="tab-content">
-    <div class="font-[sans-serif] lg:max-w-5xl sm:max-w-2xl max-sm:max-w-sm mx-auto mt-4">
-        <h2 class="text-gray-800 text-3xl font-extrabold border-b-2 border-gray-800 inline-block">Our Team</h2>
-
-        <div class="grid lg:grid-cols-3 sm:grid-cols-2 gap-6 max-md:justify-center mt-12">
-            <div class="grid grid-cols-3 items-center bg-gray-100 p-4 rounded-lg relative">
-                <div class="col-span-2 min-h-[190px]">
-                    <img src="https://readymadeui.com/team-1.webp" alt="Photo de l'équipe Frontend" class="rounded-lg" />
-                </div>
-
-                <div class="bg-white rounded-lg p-4 absolute right-4 shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] ">
-                    <h4 class="text-gray-800 text-sm font-bold">John Doe</h4>
-                    <p class="text-[10px] text-gray-500 mt-0.5">United State</p>
-                    <p class="text-gray-800 mt-2 text-xs">Software Engineer</p>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-3 items-center bg-gray-100 p-4 rounded-lg relative">
-                <div class="col-span-2 min-h-[190px]">
-                    <img src="https://readymadeui.com/team-2.webp" class="rounded-lg" alt="Photo de l'équipe Frontend" />
-                </div>
-
-                <div class="bg-white rounded-lg p-4 absolute right-4 shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] ">
-                    <h4 class="text-gray-800 text-sm font-bold">Mark Adair</h4>
-                    <p class="text-[10px] text-gray-500 mt-0.5">United State</p>
-                    <p class="text-gray-800 mt-2 text-xs">Software Engineer</p>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-3 items-center bg-gray-100 p-4 rounded-lg relative">
-                <div class="col-span-2 min-h-[190px]">
-                    <img src="https://readymadeui.com/team-3.webp" class="rounded-lg" alt="Photo de l'équipe Frontend" />
-                </div>
-
-                <div class="bg-white rounded-lg p-4 absolute right-4 shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] ">
-                    <h4 class="text-gray-800 text-sm font-bold">Simon Konecki</h4>
-                    <p class="text-[10px] text-gray-500 mt-0.5">United State</p>
-                    <p class="text-gray-800 mt-2 text-xs">Software Engineer</p>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-3 items-center bg-gray-100 p-4 rounded-lg relative">
-                <div class="col-span-2 min-h-[190px]">
-                    <img src="https://readymadeui.com/team-4.webp" class="rounded-lg" alt="Photo de l'équipe Frontend" />
-                </div>
-
-                <div class="bg-white rounded-lg p-4 absolute right-4 shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] ">
-                    <h4 class="text-gray-800 text-sm font-bold">Simon Konecki</h4>
-                    <p class="text-[10px] text-gray-500 mt-0.5">United State</p>
-                    <p class="text-gray-800 mt-2 text-xs">Software Engineer</p>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-3 items-center bg-gray-100 p-4 rounded-lg relative">
-                <div class="col-span-2 min-h-[190px]">
-                    <img src="https://readymadeui.com/team-5.webp" class="rounded-lg" alt="Photo de l'équipe Frontend" />
-                </div>
-
-                <div class="bg-white rounded-lg p-4 absolute right-4 shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] ">
-                    <h4 class="text-gray-800 text-sm font-bold">Alen</h4>
-                    <p class="text-[10px] text-gray-500 mt-0.5">United State</p>
-                    <p class="text-gray-800 mt-2 text-xs">Software Developer</p>
-                </div>
-            </div>
-
-            <div class="grid grid-cols-3 items-center bg-gray-100 p-4 rounded-lg relative">
-                <div class="col-span-2 min-h-[190px]">
-                    <img src="https://readymadeui.com/team-6.webp" class="rounded-lg" alt="Photo de l'équipe Frontend" />
-                </div>
-
-                <div class="bg-white rounded-lg p-4 absolute right-4 shadow-[0_2px_22px_-4px_rgba(93,96,127,0.2)] ">
-                    <h4 class="text-gray-800 text-sm font-bold">Sophia</h4>
-                    <p class="text-[10px] text-gray-500 mt-0.5">United State</p>
-                    <p class="text-gray-800 mt-2 text-xs">Web Designer</p>
+      </div>
+      
+      <!-- Contenu pour l'équipe Backend -->
+      <div *ngIf="activeTab === 'backend'" class="tab-content">
+        <!-- Contenu de l'équipe Backend -->
+        <div class="font-[sans-serif] px-4">
+            <div class="lg:max-w-5xl sm:max-w-2xl mx-auto">
+                
+    
+                <div class="grid lg:grid-cols-3 sm:grid-cols-2 gap-8 max-sm:gap-12 max-md:justify-center mt-16">
+                    
+                    <app-profil 
+                    name="Malonga Eros"  
+                    position="Back-end développeur"  
+                    imageUrl="https://readymadeui.com/team-2.webp">
+                </app-profil>
+                
+                <app-profil 
+                    name="Aicha"  
+                    position="Back-end développeur"  
+                    imageUrl="https://readymadeui.com/team-2.webp">
+                </app-profil>
+                
+                <app-profil 
+                    name="Tidjane Dianifaba"  
+                    position="Back-end développeur"  
+                    imageUrl="https://readymadeui.com/team-2.webp">
+                </app-profil>
+                
+                <app-profil 
+                    name="Aida Diao"  
+                    position="Back-end développeur"  
+                    imageUrl="https://readymadeui.com/team-2.webp">
+                </app-profil>
+                
+                <app-profil 
+                    name="Ngayouma Guillaume"  
+                    position="Back-end développeur"  
+                    imageUrl="https://readymadeui.com/team-2.webp">
+                </app-profil>
+                
+                <app-profil 
+                    name="Chancelin Makosso"  
+                    position="Back-end développeur"  
+                    imageUrl="https://readymadeui.com/team-2.webp">
+                </app-profil>
+                
+                    
                 </div>
             </div>
         </div>
-    </div>
-  </div>
-  
+      </div>
+      
+
+
+
+
+      <!-- Contenu pour l'équipe DevOps -->
+      <div *ngIf="activeTab === 'Devops'" class="tab-content">
+        
+        <div class="font-[sans-serif] px-4">
+            <div class="lg:max-w-5xl sm:max-w-2xl mx-auto">
+                
+    
+                <div class="flex justify-center mt-16">
+                    
+                    <app-profil 
+                    name="Arthur Kombilat"  
+                    position="Dev Ops"  
+                    imageUrl="../../assets/img/arthur.jpg">
+                </app-profil>
+
+                
+                    
+                </div>
+            </div>
+        </div>
+      </div>
+
+      
+        
+      
+</div>
