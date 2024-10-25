@@ -14,7 +14,7 @@ import { HomeComponent } from './page/home/home.component';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'teams',
     pathMatch: 'full',
   },
   {
