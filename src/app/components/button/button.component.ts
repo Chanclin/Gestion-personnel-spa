@@ -10,9 +10,10 @@ import { Router } from '@angular/router';
   styleUrl: './button.component.css',
 })
 export class ButtonComponent {
+  @Input() disabled: boolean = false;
+  @Input() buttonColor: string = 'blue';
   @Input() textBtn: string = 'Changez moi';
-  @Input() buttonColor: string = '#1896c7';
-  @Input() navigateTo: string = '/';
+  @Input() navigateTo: string = '';
 
   constructor(private router: Router) {}
 
