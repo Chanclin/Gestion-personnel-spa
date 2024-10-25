@@ -18,57 +18,66 @@
       </div>
 
       <!-- Champ Nom -->
-      <div class="relative flex items-center mb-4 shadow-lg">
-        <input
-          formControlName="nom"
-          type="text"
-          class="w-full text-sm text-gray-800 focus:bg-transparent px-4 py-3.5 rounded-md outline-blue-600"
-          placeholder="Entrez votre nom"
-        />
-        <div *ngIf="registerForm.get('nom')?.errors?.['required'] && registerForm.get('nom')?.touched"
-          class="text-xs text-red-500">
-          Le nom est requis.
+      <div class="flex flex-col">
+        <div class="relative flex items-center mb-4 shadow-lg">
+          <input
+            formControlName="nom"
+            type="text"
+            class="w-full text-sm text-gray-800 focus:bg-transparent px-4 py-3.5 rounded-md outline-blue-600"
+            placeholder="Entrez votre nom"
+          />
+          
         </div>
+        <div *ngIf="registerForm.get('nom')?.errors?.['required'] && registerForm.get('nom')?.touched"
+            class="text-xs text-red-500">
+            Le nom est requis.
+          </div>
       </div>
 
       <!-- Champ Email -->
-      <div class="relative flex items-center mb-4 shadow-lg">
-        <input
-          formControlName="email"
-          type="email"
-          class="w-full text-sm text-gray-800 focus:bg-transparent px-4 py-3.5 rounded-md outline-blue-600"
-          placeholder="Entrez votre email"
-        />
+      <div class="flex flex-col">
+        <div class="relative flex items-center mb-4 shadow-lg">
+          <input
+            formControlName="email"
+            type="email"
+            class="w-full text-sm text-gray-800 focus:bg-transparent px-4 py-3.5 rounded-md outline-blue-600"
+            placeholder="Entrez votre email"
+          />
+          
+        </div>
         <div *ngIf="registerForm.get('email')?.errors?.['required'] && registerForm.get('email')?.touched"
-          class="text-xs text-red-500">
-          L'adresse email est requise.
-        </div>
-        <div *ngIf="registerForm.get('email')?.errors?.['email'] && registerForm.get('email')?.touched"
-          class="text-xs text-red-500">
-          Entrez une adresse email valide.
-        </div>
+            class="text-xs text-red-500">
+            L'adresse email est requise.
+          </div>
+          <div *ngIf="registerForm.get('email')?.errors?.['email'] && registerForm.get('email')?.touched"
+            class="text-xs text-red-500">
+            Entrez une adresse email valide.
+          </div>
       </div>
 
       <!-- Champ Mot de passe -->
-      <div class=" flex flex-col items-center mb-4 shadow-lg">
-        <input
-          formControlName="password"
-          type="password"
-          class="w-full text-sm text-gray-800 focus:bg-transparent px-4 py-3.5 rounded-md outline-blue-600"
-          placeholder="Entrez un mot de passe"
-        />
+      <div class="flex flex-col">
+        <div class=" flex flex-col items-center mb-4 shadow-lg">
+          <input
+            formControlName="password"
+            type="password"
+            class="w-full text-sm text-gray-800 focus:bg-transparent px-4 py-3.5 rounded-md outline-blue-600"
+            placeholder="Entrez un mot de passe"
+          />
+          
+        </div>
         <div *ngIf="registerForm.get('password')?.errors?.['required'] && registerForm.get('password')?.touched"
-          class="text-xs text-red-500">
-          Le mot de passe est requis.
-        </div>
-        <div *ngIf="registerForm.get('password')?.errors?.['minlength'] && registerForm.get('password')?.touched"
-          class="text-xs text-red-500">
-          Le mot de passe doit contenir au moins {{ registerForm.get('password')?.errors?.['minlength'].requiredLength }} caractères.
-        </div>
-        <div *ngIf="registerForm.get('password')?.errors?.['invalidPassword'] && registerForm.get('password')?.touched"
-          class="text-xs text-red-500">
-          {{ registerForm.get('password')?.errors?.['invalidPassword'] }}
-        </div>
+            class="text-xs text-red-500">
+            Le mot de passe est requis.
+          </div>
+          <div *ngIf="registerForm.get('password')?.errors?.['minlength'] && registerForm.get('password')?.touched"
+            class="text-xs text-red-500">
+            Le mot de passe doit contenir au moins {{ registerForm.get('password')?.errors?.['minlength'].requiredLength }} caractères.
+          </div>
+          <div *ngIf="registerForm.get('password')?.errors?.['invalidPassword'] && registerForm.get('password')?.touched"
+            class="text-xs text-red-500">
+            {{ registerForm.get('password')?.errors?.['invalidPassword'] }}
+          </div>
       </div>
 
       <!-- Bouton de soumission -->
