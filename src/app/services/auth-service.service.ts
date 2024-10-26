@@ -9,7 +9,7 @@ import { Utilisateur } from '../models/utilisateur.model'; // Mettez à jour ce 
 })
 export class AuthService {
   private loginUrl = 'http://localhost:8086/api/connexion';
-  private registerUrl = 'http://localhost:8086/api/inscription'; 
+  private registerUrl = 'http://localhost:8086/api/inscription';
 
   constructor(private http: HttpClient) {}
 
@@ -18,17 +18,24 @@ export class AuthService {
     return this.http.post(this.registerUrl, data); // Envoie les autres propriétés
   }
 
-
   login(username: string, password: string): Observable<boolean> {
     const loginData = { username, password };
     return this.http.post<any>(this.loginUrl, loginData).pipe(
       map((response) => {
         if (response && response.token) {
-          localStorage.setItem('authToken', response.token);
+          sessionStorage.setItem('authToken', response.token); // Stocker dans sessionStorage
           return true;
         }
         return false;
       })
     );
+  }
+
+  logout(): void {
+    sessionStorage.removeItem('authToken'); // Supprimer le token lors de la déconnexion
+  }
+
+  getToken(): string | null {
+    return sessionStorage.getItem('authToken'); // Récupérer le token depuis sessionStorage
   }
 }

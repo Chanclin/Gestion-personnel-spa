@@ -11,6 +11,9 @@ import { LienversComponent } from "../../components/lienvers/lienvers.component"
   styleUrl: './equipe.component.css'
 })
 export class EquipeComponent {
+logout() {
+throw new Error('Method not implemented.');
+}
   // Variable pour suivre l'onglet actif
   activeTab: string = 'frontend';  // L'onglet frontend est actif par défaut
 
