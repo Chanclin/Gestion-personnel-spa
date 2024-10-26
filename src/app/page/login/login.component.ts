@@ -63,7 +63,7 @@ export class LoginComponent {
       const password = this.loginForm.get('password')?.value;
       this.authService.login(email, password).subscribe((response) => {
         if (response) {
-          this.router.navigate(['teams']);
+          this.router.navigate(['home']);
         } else {
           console.error('Invalid credentials');
         }

@@ -1,9 +1,13 @@
 <div class="flex">
   <div
-    class="hidden lg:block lg:col-span-2 md:h-screen w-[60%] bg-[#1896c7] lg:p-12 p-8"
-  ></div>
+    class="hidden lg:block lg:col-span-2 md:h-screen w-[60%] bg-[#1896c7]"
+  >
+  <div class="w-full">
+    <app-lienvers textlien="Retour"  [navigateTo]="'login'" />
+  </div></div>
 
-  <div class="content-center w-full p-6">
+  <div class="content-center w-full p-6  ">
+    
     <form
       [formGroup]="registerForm"
       (ngSubmit)="onSubmit()"
@@ -29,7 +33,7 @@
           
         </div>
         <div *ngIf="registerForm.get('nom')?.errors?.['required'] && registerForm.get('nom')?.touched"
-            class="text-xs text-red-500">
+            class="text-xs text-red-500 mb-2">
             Le nom est requis.
           </div>
       </div>
@@ -46,18 +50,18 @@
           
         </div>
         <div *ngIf="registerForm.get('email')?.errors?.['required'] && registerForm.get('email')?.touched"
-            class="text-xs text-red-500">
+            class="text-xs text-red-500 mb-2">
             L'adresse email est requise.
           </div>
           <div *ngIf="registerForm.get('email')?.errors?.['email'] && registerForm.get('email')?.touched"
-            class="text-xs text-red-500">
+            class="text-xs text-red-500 mb-2">
             Entrez une adresse email valide.
           </div>
       </div>
 
       <!-- Champ Mot de passe -->
       <div class="flex flex-col">
-        <div class=" flex flex-col items-center mb-4 shadow-lg">
+        <div class=" flex flex-col items-center mb-3 shadow-lg">
           <input
             formControlName="password"
             type="password"
