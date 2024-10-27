@@ -1,0 +1,7 @@
+.content {
+  transition: margin-left 0.3s ease, width 0.3s ease; /* pour une transition fluide */
+}
+
+.ml-72 {
+  margin-left: 18rem; /* largeur du sidebar */
+}

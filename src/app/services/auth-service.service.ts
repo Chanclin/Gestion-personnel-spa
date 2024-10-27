@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { Utilisateur } from '../models/utilisateur.model'; // Mettez à jour ce chemin en fonction de l'emplacement de votre modèle
+import { Utilisateur } from '../models/utilisateur.model';
 
 @Injectable({
   providedIn: 'root',

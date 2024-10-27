@@ -1,12 +1,56 @@
-<nav class="flex justify-between p-3 ">
-    
-      <app-button textBtn="Entreprise" />
-      <app-button textBtn="Créer une entreprise " [navigateTo]="''" />
-   
-  </nav>
-  
-  <h1 class="text-center">{{title}}</h1>
-  <div class="container">
-    <app-liste-entreprise/>
+<!-- <nav class="flex justify-between p-3">
+  <app-button textBtn="Entreprise" />
+  <app-button
+    textBtn="Créer une entreprise "
+    [navigateTo]="'create-entreprise'"
+  />
+</nav>
+
+<h1 class="text-center">{{ title }}</h1>
+<div class="container">
+  <app-liste-entreprise />
+</div> -->
+
+<!-- <div class="flex">
+  <app-sidebar
+    [afficherSidebar]="afficherSidebar"
+    class="hidden md:block"
+  ></app-sidebar>
+  <div class="w-full">
+    <app-navbar (basculerSidebar)="onBasculerSidebar()"></app-navbar>
+    <div class="p-4">
+      <h2>Contenu de la page</h2>
+      <p>Bienvenue dans l'application !</p>
+    </div>
   </div>
-  
+</div> -->
+
+<app-navbar></app-navbar>
+<app-sidebar></app-sidebar>
+
+<!-- <div
+  [ngClass]="{
+    'w-full': !isSidebarVisible,
+    'w-[calc(100%-18rem)]': isSidebarVisible
+  }"
+  class="h-full transition-all duration-300 bg-stone-700"
+>
+  <p>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque, quod.
+  </p>
+  <p>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque, quod.
+  </p>
+  <p>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque, quod.
+  </p>
+  <p>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque, quod.
+  </p>
+  <p>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque, quod.
+  </p>
+  <p>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Doloremque, quod.
+  </p>
+</div> -->

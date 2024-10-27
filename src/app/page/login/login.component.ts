@@ -8,6 +8,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
+import { BtnDesignComponent } from '../../components/btn-design/btn-design.component';
 import { ButtonComponent } from '../../components/button/button.component';
 import { LienversComponent } from '../../components/lienvers/lienvers.component';
 import { AuthService } from '../../services/auth-service.service';
@@ -20,6 +21,7 @@ import { AuthService } from '../../services/auth-service.service';
     ReactiveFormsModule,
     ButtonComponent,
     LienversComponent,
+    BtnDesignComponent,
   ],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],

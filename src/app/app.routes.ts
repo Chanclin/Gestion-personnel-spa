@@ -1,20 +1,16 @@
-import { RouterModule, RouterOutlet, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
+import { Routes } from '@angular/router';
 import { CreateEntrepriseComponent } from './components/create-entreprise/create-entreprise.component';
 import { ListeEntrepriseComponent } from './components/liste-entreprise/liste-entreprise.component';
-import { UpdateEntrepriseComponent } from './update-entreprise/update-entreprise.component';
-import { DetailEntrepriseComponent } from './components/detail-entreprise/detail-entreprise.component';
-import { LoginComponent } from './page/login/login.component';
-import { RegisterComponent } from './page/register/register.component';
-import { NotfoundComponent } from './page/notfound/notfound.component';
 import { EquipeComponent } from './page/equipe/equipe.component';
 import { HomeComponent } from './page/home/home.component';
+import { LoginComponent } from './page/login/login.component';
+import { NotfoundComponent } from './page/notfound/notfound.component';
+import { RegisterComponent } from './page/register/register.component';
 
-// Définition des routes
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'teams',
+    redirectTo: 'welcome',
     pathMatch: 'full',
   },
   {
@@ -22,42 +18,29 @@ export const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: 'teams',
-    component: EquipeComponent,
+    path: 'register',
+    component: RegisterComponent,
   },
   {
     path: 'home',
     component: HomeComponent,
   },
   {
-    path: 'register',
-    component: RegisterComponent,
-  },
-  {
-    path: 'entreprises',
-    component: ListeEntrepriseComponent,
+    path: 'welcome',
+    component: EquipeComponent,
   },
   {
     path: 'create-entreprise',
     component: CreateEntrepriseComponent,
   },
+
   {
-    path: 'update-entreprise/:idEntreprise',
-    component: UpdateEntrepriseComponent,
+    path: 'entreprises',
+    component: ListeEntrepriseComponent,
   },
-  
-  {
-    path: 'detail-entreprise/:idEntreprise',
-    component: DetailEntrepriseComponent,
-  },
+
   {
     path: '**',
     component: NotfoundComponent,
   },
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule {} // Renommez la classe pour qu'elle reflète mieux son rôle
