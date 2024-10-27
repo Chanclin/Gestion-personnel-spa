@@ -5,6 +5,7 @@ import {
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
+  ValidationErrors,
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -28,6 +29,7 @@ import { AuthService } from '../../services/auth-service.service';
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  errorMessage: string = '';
 
   constructor(
     private fb: FormBuilder,
@@ -36,20 +38,34 @@ export class LoginComponent {
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: [
-        '',
-        [Validators.required, Validators.minLength(8), this.passwordValidator],
-      ],
+      password: ['', [Validators.required, this.passwordValidator]], // Ajout du validateur personnalisé ici
     });
   }
 
-  passwordValidator(control: AbstractControl) {
-    const value = control.value;
+  onSubmit(): void {
+    if (this.loginForm.invalid) {
+      return;
+    }
+
+    const credentials = this.loginForm.value;
+    this.authService.login(credentials).subscribe({
+      next: () => this.router.navigate(['/home']), // Redirection en cas de succès
+      error: (err) => {
+        this.errorMessage =
+          'Échec de la connexion. Veuillez vérifier vos identifiants.';
+      },
+    });
+  }
+
+  // Fonction de validation du mot de passe
+  passwordValidator(control: AbstractControl): ValidationErrors | null {
+    const value = control.value || '';
     const hasNumber = /[0-9]/.test(value);
     const hasUpper = /[A-Z]/.test(value);
     const hasLower = /[a-z]/.test(value);
     const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(value);
     const valid = hasNumber && hasUpper && hasLower && hasSpecial;
+
     if (!valid) {
       return {
         invalidPassword:
@@ -57,21 +73,5 @@ export class LoginComponent {
       };
     }
     return null;
-  }
-
-  onSubmit() {
-    if (this.loginForm.valid) {
-      const email = this.loginForm.get('email')?.value;
-      const password = this.loginForm.get('password')?.value;
-      this.authService.login(email, password).subscribe((response) => {
-        if (response) {
-          this.router.navigate(['home']);
-        } else {
-          console.error('Invalid credentials');
-        }
-      });
-    } else {
-      console.error('Form invalid');
-    }
   }
 }

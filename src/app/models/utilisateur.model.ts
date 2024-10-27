@@ -1,6 +1,6 @@
 export interface Utilisateur {
-    id_utilisateur?: number; // Marquez comme optionnel avec ?
-    nom: string;
-    email: string;
-    password: string;
+  id_utilisateur?: number;
+  nom: string;
+  email: string;
+  password: string;
 }
