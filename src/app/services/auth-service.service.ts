@@ -8,8 +8,8 @@ import { Utilisateur } from '../models/utilisateur.model'; // Mettez à jour ce 
   providedIn: 'root',
 })
 export class AuthService {
-  private loginUrl = 'http://localhost:8086/api/connexion';
-  private registerUrl = 'http://localhost:8086/api/inscription';
+  private loginUrl = 'http://localhost:8080/api/utilisateur/connexion';
+  private registerUrl = 'http://localhost:8080/api/utilisateur/inscription';
 
   constructor(private http: HttpClient) {}
 

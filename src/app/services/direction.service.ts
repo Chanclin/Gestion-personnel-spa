@@ -7,7 +7,7 @@ import { Direction } from '../models/direction.model'; // Import de l'interface 
   providedIn: 'root',
 })
 export class DirectionService {
-  private apiUrl = 'http://localhost:8090/api/directions';
+  private apiUrl = 'http://localhost:8080/api/directions';
 
   constructor(private http: HttpClient) {}
 
