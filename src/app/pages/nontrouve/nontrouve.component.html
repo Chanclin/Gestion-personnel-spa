@@ -12,11 +12,10 @@
             Désolé pour cela ! Veuillez visiter notre page d'accueil pour vous
             rendre où vous devez aller.
           </p>
-          <button
-            class="px-8 py-4 my-2 text-center text-white bg-indigo-600 border rounded sm:w-full lg:w-auto md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-700 focus:ring-opacity-50"
-          >
-            Emmenez-moi là-bas !
-          </button>
+          <app-button
+            textBtn="Emmenez-moi là-bas !"
+            [navigateTo]="'Bienvenue'"
+          />
         </div>
       </div>
       <div>

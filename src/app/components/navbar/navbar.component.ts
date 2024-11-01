@@ -1,7 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { SidebarService } from '../sidebar/sidebar.service';
-import { SearchbarComponent } from '../searchbar/searchbar.component';
+import { Component } from '@angular/core';
 import { ButtonComponent } from '../button/button.component';
+import { SearchbarComponent } from '../searchbar/searchbar.component';
 
 @Component({
   selector: 'app-navbar',
@@ -10,10 +9,4 @@ import { ButtonComponent } from '../button/button.component';
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.css',
 })
-export class NavbarComponent {
-  constructor(private sidebarService: SidebarService) {}
-
-  toggleSidebar() {
-    this.sidebarService.toggleSidebar();
-  }
-}
+export class NavbarComponent {}
