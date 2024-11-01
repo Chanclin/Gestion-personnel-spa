@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, OnInit } from '@angular/core';
-import { SidebarService } from '../sidebar/sidebar.service';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthService } from '../../service/auth.service';
 import { ButtonComponent } from '../button/button.component';
 import { SidebarBtnComponent } from '../sidebar-btn/sidebar-btn.component';
 
@@ -9,17 +10,15 @@ import { SidebarBtnComponent } from '../sidebar-btn/sidebar-btn.component';
   standalone: true,
   imports: [CommonModule, ButtonComponent, SidebarBtnComponent],
   templateUrl: './sidebar.component.html',
-  styleUrl: './sidebar.component.css',
+  styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent implements OnInit {
-  @Input() afficherSidebar = false; // Ajout d'un Input pour la liaison
-  isSidebarVisible = false;
+  constructor(private authService: AuthService, private router: Router) {}
 
-  constructor(private sidebarService: SidebarService) {}
+  ngOnInit(): void {}
 
-  ngOnInit() {
-    this.sidebarService.sidebarVisibility$.subscribe(
-      (isVisible) => (this.isSidebarVisible = isVisible)
-    );
+  onLogout() {
+    this.authService.logout();
+    this.router.navigate(['/Connexion']);
   }
 }

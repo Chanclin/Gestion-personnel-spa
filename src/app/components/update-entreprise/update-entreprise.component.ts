@@ -16,11 +16,13 @@ import { LienversComponent } from '../lienvers/lienvers.component';
 export class UpdateEntrepriseComponent {
   idEntreprise: number = 0;
   entreprise: Entreprise = new Entreprise();
+
   constructor(
     private entrepriseService: EntrepriseService,
     private route: ActivatedRoute,
     private router: Router
   ) {}
+
   ngOnInit(): void {
     this.idEntreprise = this.route.snapshot.params['idEntreprise'];
     this.entrepriseService
@@ -38,12 +40,11 @@ export class UpdateEntrepriseComponent {
         this.goToEntrepriseList();
       });
   }
-
   goToEntrepriseList() {
-    this.router.navigate(['/Accueil/Entreprises']);
+    this.router.navigate(['/Accueil/Entreprises']); // Utilisez router ici
   }
 
   onCancel() {
-    this.goToEntrepriseList(); // Redirige vers la liste des entreprises sans rien créer
+    this.goToEntrepriseList();
   }
 }

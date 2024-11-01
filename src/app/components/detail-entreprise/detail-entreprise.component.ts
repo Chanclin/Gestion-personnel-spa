@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Entreprise } from '../../models/entreprise';
 import { EntrepriseService } from '../../service/entreprise.service';
-import { ListeDirectionComponent } from '../liste-direction/liste-direction.component';
 import { LienversComponent } from '../lienvers/lienvers.component';
+import { ListeDirectionComponent } from '../liste-direction/liste-direction.component';
 
 @Component({
   selector: 'app-detail-entreprise',
@@ -16,14 +16,15 @@ import { LienversComponent } from '../lienvers/lienvers.component';
 export class DetailEntrepriseComponent {
   idEntreprise: number = 0;
   entreprise: Entreprise = new Entreprise();
-  message: String = '';
+  message: string = '';
+
   constructor(
     private route: ActivatedRoute,
     private entrepriseService: EntrepriseService
   ) {}
 
   ngOnInit(): void {
-    this.message = 'Bienvenu dans notre page de detail';
+    this.message = 'Bienvenue dans notre page de détail';
     this.idEntreprise = this.route.snapshot.params['idEntreprise'];
     this.entrepriseService
       .getEntrepriseById(this.idEntreprise)

@@ -19,28 +19,17 @@
         <li>
           <app-sidebar-btn
             textBtn="+ Direction"
-            navigateTo="/Accueil/Directions"
-          ></app-sidebar-btn>
-        </li>
-        <li>
-          <app-sidebar-btn
-            textBtn="Liste direstion"
-            navigateTo="/Accueil/liste-directions"
-          ></app-sidebar-btn>
-        </li>
-        <li>
-          <app-sidebar-btn
-            textBtn="Liste Entreprise"
-            navigateTo="/Accueil/Entreprises"
+            navigateTo="/Accueil/Creer-direction"
           ></app-sidebar-btn>
         </li>
       </ul>
       <div class="fixed bottom-0 mb-7">
-        <app-sidebar-btn
-          textBtn="Déconnexion"
-          navigateTo=""
-          buttonColor="bg-gray-50"
-        ></app-sidebar-btn>
+        <button
+          class="w-full px-4 py-2 text-white transition duration-200 bg-blue-500 rounded hover:bg-blue-600"
+          (click)="onLogout()"
+        >
+          Déconnexion
+        </button>
       </div>
     </div>
   </div>

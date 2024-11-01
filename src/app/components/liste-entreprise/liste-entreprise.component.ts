@@ -1,3 +1,4 @@
+//
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
@@ -9,11 +10,12 @@ import { EntrepriseService } from '../../service/entreprise.service';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './liste-entreprise.component.html',
-  styleUrl: './liste-entreprise.component.css',
+  styleUrls: ['./liste-entreprise.component.css'], // Corrigé de styleUrl à styleUrls
 })
 export class ListeEntrepriseComponent {
   entreprises: Entreprise[] = [];
   errorMessage: string | null = null;
+
   constructor(
     private entrepriseService: EntrepriseService,
     private router: Router
@@ -22,11 +24,17 @@ export class ListeEntrepriseComponent {
   ngOnInit(): void {
     this.getEntreprises();
   }
-  // Logique pour remplir la liste des entreprises
 
+  // Logique pour remplir la liste des entreprises
   private getEntreprises() {
-    this.entrepriseService.getEntreprises().subscribe((data) => {
-      this.entreprises = data;
+    this.entrepriseService.getEntreprises().subscribe({
+      next: (data) => {
+        this.entreprises = data;
+      },
+      error: (err) => {
+        this.errorMessage = 'Erreur lors de la récupération des entreprises.';
+        console.error(err);
+      },
     });
   }
 
@@ -39,11 +47,17 @@ export class ListeEntrepriseComponent {
   }
 
   deleteEntreprise(idEntreprise: number) {
-    this.entrepriseService
-      .deleteEntrepriseById(idEntreprise)
-      .subscribe((data) => {
-        console.log(data);
-        this.getEntreprises();
+    if (confirm('Êtes-vous sûr de vouloir supprimer cette entreprise ?')) {
+      this.entrepriseService.deleteEntrepriseById(idEntreprise).subscribe({
+        next: () => {
+          this.getEntreprises(); // Rafraîchir la liste après suppression
+        },
+        error: (err) => {
+          this.errorMessage =
+            "Erreur lors de la suppression de l'entreprise. Veuillez réessayer.";
+          console.error(err);
+        },
       });
+    }
   }
 }

@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CreateDirectionComponent } from './components/create-direction/create-direction.component';
 import { CreateEntrepriseComponent } from './components/create-entreprise/create-entreprise.component';
+import { DeleteEntrepriseComponent } from './components/delete-entreprise/delete-entreprise.component';
+import { DetailEntrepriseComponent } from './components/detail-entreprise/detail-entreprise.component';
 import { ListeDirectionComponent } from './components/liste-direction/liste-direction.component';
 import { ListeEntrepriseComponent } from './components/liste-entreprise/liste-entreprise.component';
 import { UpdateEntrepriseComponent } from './components/update-entreprise/update-entreprise.component';
@@ -27,17 +30,26 @@ export const routes: Routes = [
     component: ConnexionComponent,
   },
   {
+    path: 'Entreprises',
+    component: ListeEntrepriseComponent,
+  },
+
+  {
     path: 'Accueil',
     component: AccueilComponent,
-    canActivate: [AuthGuard], // Ajout du guard ici
+    canActivate: [AuthGuard],
     children: [
       {
-        path: '',
+        path: '', // Par défaut, affiche ListeEntreprise
         component: ListeEntrepriseComponent,
       },
       {
         path: 'Creer-entreprise',
         component: CreateEntrepriseComponent,
+      },
+      {
+        path: 'Creer-direction',
+        component: CreateDirectionComponent,
       },
       {
         path: 'Entreprises',
@@ -47,13 +59,18 @@ export const routes: Routes = [
         path: 'Directions',
         component: ListeDirectionComponent,
       },
+
+      {
+        path: 'detail-entreprise/:idEntreprise',
+        component: DetailEntrepriseComponent,
+      },
       {
         path: 'update-entreprise/:idEntreprise',
         component: UpdateEntrepriseComponent,
       },
       {
-        path: 'update-entreprise',
-        component: UpdateEntrepriseComponent,
+        path: 'supprimer-entreprise/:idEntreprise',
+        component: DeleteEntrepriseComponent,
       },
     ],
   },
@@ -61,12 +78,12 @@ export const routes: Routes = [
     path: 'Inscription',
     component: InscriptionComponent,
   },
+
   {
     path: '**',
     component: NontrouveComponent,
   },
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],

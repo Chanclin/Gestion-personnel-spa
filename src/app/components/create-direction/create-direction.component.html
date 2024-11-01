@@ -1,0 +1,175 @@
+<!-- <div class="">
+  <h3 class="max-w-md mx-auto mb-6 text-2xl font-semibold text-gray-800">
+    Créer une direction
+  </h3>
+  <form
+    #directionForm="ngForm"
+    (ngSubmit)="onSubmit()"
+    class="max-w-md mx-auto"
+  >
+    <div class="relative z-0 w-full mb-5 group">
+      <input
+        type="text"
+        id="nomDirection"
+        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        [(ngModel)]="direction.nomDirection"
+        name="nomDirection"
+        required
+      />
+      <label
+        for="nomDirection"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+      >
+        Nom de la direction
+      </label>
+      <div
+        *ngIf="directionForm.submitted && !direction.nomDirection"
+        class="text-danger"
+      >
+        Le nom de la direction est requis.
+      </div>
+    </div>
+
+    <div class="relative z-0 w-full mb-5 group">
+      <input
+        type="text"
+        id="descriptionDirection"
+        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        [(ngModel)]="direction.description"
+        name="descriptionDirection"
+        required
+      />
+      <label
+        for="descriptionDirection"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+      >
+        Description
+      </label>
+      <div
+        *ngIf="directionForm.submitted && !direction.description"
+        class="text-danger"
+      >
+        La description de la direction est requise.
+      </div>
+    </div>
+
+    <div class="flex gap-5">
+      <button
+        type="submit"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      >
+        Valider
+      </button>
+      <button
+        type="button"
+        class="btn btn-secondary text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        (click)="onCancel()"
+      >
+        Annuler
+      </button>
+    </div>
+  </form>
+</div> -->
+
+<div class="">
+  <h3 class="max-w-md mx-auto mb-6 text-2xl font-semibold text-gray-800">
+    Créer une direction
+  </h3>
+  <form
+    #directionForm="ngForm"
+    (ngSubmit)="onSubmit()"
+    class="max-w-md mx-auto"
+  >
+    <div class="relative z-0 w-full mb-5 group">
+      <input
+        type="text"
+        id="nomDirection"
+        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        [(ngModel)]="direction.nomDirection"
+        name="nomDirection"
+        required
+      />
+      <label
+        for="nomDirection"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+      >
+        Nom de la direction
+      </label>
+      <div
+        *ngIf="directionForm.submitted && !direction.nomDirection"
+        class="text-danger"
+      >
+        Le nom de la direction est requis.
+      </div>
+    </div>
+
+    <div class="relative z-0 w-full mb-5 group">
+      <input
+        type="text"
+        id="descriptionDirection"
+        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        [(ngModel)]="direction.description"
+        name="descriptionDirection"
+        required
+      />
+      <label
+        for="descriptionDirection"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+      >
+        Description
+      </label>
+      <div
+        *ngIf="directionForm.submitted && !direction.description"
+        class="text-danger"
+      >
+        La description de la direction est requise.
+      </div>
+    </div>
+
+    <div class="relative z-0 w-full mb-5 group">
+      <select
+        id="idEntreprise"
+        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        [(ngModel)]="direction.idEntreprise"
+        name="idEntreprise"
+        required
+      >
+        <option value="" disabled selected>Choisir une entreprise</option>
+        <option
+          *ngFor="let entreprise of entreprises"
+          [value]="entreprise.idEntreprise"
+        >
+          {{ entreprise.nomEntreprise }}
+        </option>
+      </select>
+      <label
+        for="idEntreprise"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+      >
+        Entreprise
+      </label>
+      <div
+        *ngIf="directionForm.submitted && !direction.idEntreprise"
+        class="text-danger"
+      >
+        Vous devez sélectionner une entreprise.
+      </div>
+    </div>
+
+    <div class="flex gap-5">
+      <button
+        type="submit"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      >
+        Valider
+      </button>
+      <button
+        type="button"
+        class="btn btn-secondary text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        (click)="onCancel()"
+      >
+        Annuler
+      </button>
+    </div>
+  </form>
+</div>
