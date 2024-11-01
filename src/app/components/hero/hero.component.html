@@ -3,7 +3,11 @@
 >
   <nav class="w-full p-6 border-gray-200 border-solid bg-inherit">
     <div class="flex justify-end gap-4">
-      <app-btn-design text="Connexion" bgCouleur="bg-indigo-50" />
+      <app-btn-design
+        text="Connexion"
+        bgCouleur="bg-indigo-50"
+        [navigateTo]="'Connexion'"
+      />
       <!-- <button
         class="px-6 py-3 text-sm font-semibold text-center text-indigo-600 transition-all duration-500 rounded-full shadow-xs cursor-pointer bg-indigo-50 hover:bg-indigo-100"
       >

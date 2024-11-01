@@ -1,31 +1,76 @@
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
-<div class="container bootdey flex-grow-1 container-p-y">
-  <h3>Detail de l'entreprise</h3><br>
-  <div class="card mb-4">
-    <div class="card-body">
-      <table class="table user-view-table m-0">
-        <tbody>
-          <tr>
-            <td>ID: <b>{{entreprise.idEntreprise}}</b></td>
-          </tr>
-          <tr>
-            <td>Nom entreprise: <b>{{entreprise.nomEntreprise}}</b></td>
-          </tr>
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
 
-          <tr>
-            <td>Address: <b>{{entreprise.adresseEntreprise}}</b></td>
+<div>
+  <app-lienvers textlien="Retour" [navigateTo]="'Accueil/Entreprises'" />
+</div>
+
+<div class="container p-4 mx-auto my-8">
+  <h3 class="mb-6 text-2xl font-semibold text-gray-800 dark:text-gray-200">
+    Détail de l'entreprise
+  </h3>
+
+  <div
+    class="relative p-6 overflow-x-auto bg-white rounded-lg shadow-md sm:rounded-lg dark:bg-gray-800"
+  >
+    <div class="card-body">
+      <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <tbody>
+          <tr class="border-b dark:border-gray-700">
+            <td
+              class="px-4 py-3 font-semibold text-gray-700 dark:text-gray-300"
+            >
+              <i class="mr-2 text-blue-500 fa fa-id-badge"></i>
+              ID:
+              <span class="font-medium text-gray-900 dark:text-white">{{
+                entreprise.idEntreprise
+              }}</span>
+            </td>
+          </tr>
+          <tr class="border-b dark:border-gray-700">
+            <td
+              class="px-4 py-3 font-semibold text-gray-700 dark:text-gray-300"
+            >
+              <i class="mr-2 text-green-500 fa fa-building"></i>
+              Nom entreprise:
+              <span class="font-medium text-gray-900 dark:text-white">{{
+                entreprise.nomEntreprise
+              }}</span>
+            </td>
+          </tr>
+          <tr class="border-b dark:border-gray-700">
+            <td
+              class="px-4 py-3 font-semibold text-gray-700 dark:text-gray-300"
+            >
+              <i class="mr-2 text-red-500 fa fa-map-marker"></i>
+              Adresse:
+              <span class="font-medium text-gray-900 dark:text-white">{{
+                entreprise.adresseEntreprise
+              }}</span>
+            </td>
           </tr>
           <tr>
-            <td>Email: <b>{{entreprise.emailEntreprise}}</b></td>
+            <td
+              class="px-4 py-3 font-semibold text-gray-700 dark:text-gray-300"
+            >
+              <i class="mr-2 text-yellow-500 fa fa-envelope"></i>
+              Email:
+              <span class="font-medium text-gray-900 dark:text-white">{{
+                entreprise.emailEntreprise
+              }}</span>
+            </td>
           </tr>
         </tbody>
       </table>
     </div>
-    <div>
-      <app-liste-direction [directions]="entreprise.directions"   [message]="message"></app-liste-direction>
+
+    <div class="mt-4">
+      <app-liste-direction
+        [directions]="entreprise.directions"
+        [message]="message"
+      ></app-liste-direction>
     </div>
-
   </div>
-
-
 </div>

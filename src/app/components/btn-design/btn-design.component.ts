@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class BtnDesignComponent {
   @Input() text: string = 'Cliquez ici';
-  @Input() navigateTo: string = 'login';
+  @Input() navigateTo: string = '/';
 
   constructor(private router: Router) {}
 
