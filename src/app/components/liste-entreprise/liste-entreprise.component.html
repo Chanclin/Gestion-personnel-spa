@@ -1,0 +1,114 @@
+<!-- <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <h2 class="mb-4 text-lg font-semibold">Liste des Entreprises</h2>
+  <table
+    class="w-full text-sm text-left text-gray-500 table-auto rtl:text-right dark:text-gray-400"
+  >
+    <thead
+      class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+    >
+      <tr>
+        <th scope="col" class="px-6 py-3">ID</th>
+        <th scope="col" class="px-6 py-3">Nom</th>
+        <th scope="col" class="px-6 py-3">Adresse</th>
+        <th scope="col" class="px-6 py-3">Email</th>
+        <th scope="col" class="px-6 py-3">
+          <span class="sr-only">Actions</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let entreprise of entreprises"
+        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+      >
+        <td
+          class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+        >
+          {{ entreprise.idEntreprise }}
+        </td>
+        <td class="px-6 py-4">{{ entreprise.nomEntreprise }}</td>
+        <td class="px-6 py-4">{{ entreprise.adresseEntreprise }}</td>
+        <td class="px-6 py-4">{{ entreprise.emailEntreprise }}</td>
+        <td class="flex px-6 py-4 text-right">
+          <button
+            (click)="updateEntreprise(entreprise.idEntreprise)"
+            class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          >
+            Modifier</button
+          >&nbsp;&nbsp;
+          <button
+            (click)="deleteEntreprise(entreprise.idEntreprise)"
+            class="font-medium text-red-600 hover:underline"
+          >
+            supp.</button
+          >&nbsp;
+          <button
+            (click)="detailsEntreprise(entreprise.idEntreprise)"
+            class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          >
+            Détails
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div> -->
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <h2 class="mb-4 text-lg font-semibold">Liste des Entreprises</h2>
+  <div *ngIf="errorMessage" class="mb-4 text-red-500">{{ errorMessage }}</div>
+  <table
+    class="w-full text-sm text-left text-gray-500 table-auto rtl:text-right dark:text-gray-400"
+  >
+    <thead
+      class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+    >
+      <tr>
+        <th scope="col" class="px-6 py-3">ID</th>
+        <th scope="col" class="px-6 py-3">Nom</th>
+        <th scope="col" class="px-6 py-3">Adresse</th>
+        <th scope="col" class="px-6 py-3">Email</th>
+        <th scope="col" class="px-6 py-3">
+          <span class="sr-only">Actions</span>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr
+        *ngFor="let entreprise of entreprises"
+        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+      >
+        <td
+          class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+        >
+          {{ entreprise.idEntreprise }}
+        </td>
+        <td class="px-6 py-4">{{ entreprise.nomEntreprise }}</td>
+        <td class="px-6 py-4">{{ entreprise.adresseEntreprise }}</td>
+        <td class="px-6 py-4">{{ entreprise.emailEntreprise }}</td>
+        <td class="flex px-6 py-4 text-right">
+          <button
+            (click)="updateEntreprise(entreprise.idEntreprise)"
+            class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          >
+            Modifier
+          </button>
+          &nbsp;&nbsp;
+          <button
+            (click)="deleteEntreprise(entreprise.idEntreprise)"
+            class="font-medium text-red-600 hover:underline"
+          >
+            Supp.
+          </button>
+          &nbsp;
+          <button
+            (click)="detailsEntreprise(entreprise.idEntreprise)"
+            class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          >
+            Détails
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

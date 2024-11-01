@@ -1,22 +1,39 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Direction } from '../../models/direction.model';
-import { DirectionService } from '../../services/direction.service';
+import { DirectionService } from '../../service/direction.service'; // Ensure this import is correct
 
 @Component({
   selector: 'app-liste-direction',
   standalone: true,
   templateUrl: './liste-direction.component.html',
   styleUrls: ['./liste-direction.component.css'],
-  imports:[CommonModule],
+  imports: [CommonModule],
+  providers: [DirectionService],
 })
-export class ListeDirectionComponent {
-  
-  @Input()  directions: Direction[] = [];
-  @Input()  message:String='';
-  constructor() {}
+export class ListeDirectionComponent implements OnInit {
+  directions: Direction[] = [];
+  message: string = '';
 
-  ngOnInit() {
-    
+  constructor(private directionService: DirectionService) {}
+
+  ngOnInit(): void {
+    this.loadDirections();
+  }
+
+  loadDirections() {
+    this.directionService.getDirections().subscribe(
+      (response) => {
+        if (response.success) {
+          this.directions = response.directions;
+        } else {
+          this.message = 'Erreur lors de la récupération des directions.';
+        }
+      },
+      (error) => {
+        console.error('Erreur lors de la récupération des directions', error);
+        this.message = 'Erreur lors de la récupération des directions.';
+      }
+    );
   }
 }
