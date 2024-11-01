@@ -51,7 +51,7 @@ export class InscriptionComponent {
       this.authService.inscription(utilisateur).subscribe({
         next: (success) => {
           if (success) {
-            this.router.navigate(['/welcome']); // Rediriger en cas de succès
+            this.router.navigate(['/Connexion']); // Rediriger en cas de succès
           } else {
             this.errorMessage = "Échec de l'inscription. Veuillez réessayer.";
           }

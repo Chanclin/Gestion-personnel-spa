@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Entreprise } from '../../models/entreprise';
 import { EntrepriseService } from '../../service/entreprise.service';
@@ -9,14 +9,14 @@ import { ListeDirectionComponent } from '../liste-direction/liste-direction.comp
 @Component({
   selector: 'app-detail-entreprise',
   templateUrl: './detail-entreprise.component.html',
-  styleUrl: './detail-entreprise.component.css',
+  styleUrls: ['./detail-entreprise.component.css'],
   standalone: true,
   imports: [ListeDirectionComponent, CommonModule, LienversComponent],
 })
-export class DetailEntrepriseComponent {
+export class DetailEntrepriseComponent implements OnInit {
   idEntreprise: number = 0;
   entreprise: Entreprise = new Entreprise();
-  message: string = '';
+  message: string = 'Bienvenue dans notre page de détail';
 
   constructor(
     private route: ActivatedRoute,
@@ -24,7 +24,6 @@ export class DetailEntrepriseComponent {
   ) {}
 
   ngOnInit(): void {
-    this.message = 'Bienvenue dans notre page de détail';
     this.idEntreprise = this.route.snapshot.params['idEntreprise'];
     this.entrepriseService
       .getEntrepriseById(this.idEntreprise)

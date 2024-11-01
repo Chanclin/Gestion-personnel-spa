@@ -20,18 +20,18 @@ export class AuthService {
       map((response) => {
         console.log("Réponse de l'API d'inscription :", response);
         if (response && response.success) {
-          // Rediriger vers la page de connexion si l'inscription réussie
           this.router.navigate(['/Connexion']); // Assurez-vous que le chemin soit correct
-          return true;
+          return true; // Renvoyer true si l'inscription réussit
         }
-        return false;
+        return false; // Renvoyer false si l'inscription échoue
       }),
       catchError((error) => {
         console.error("Erreur lors de l'inscription :", error);
-        return of(false);
+        return of(false); // Renvoyer false en cas d'erreur
       })
     );
   }
+
   connexion(username: string, password: string): Observable<boolean> {
     const loginData = { username, password };
     return this.http.post<any>(this.loginUrl, loginData).pipe(
