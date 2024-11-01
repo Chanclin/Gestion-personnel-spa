@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Direction } from '../../models/direction.model';
-import { DirectionService } from '../../service/direction.service'; // Ensure this import is correct
+import { DirectionService } from '../../service/direction.service';
 
 @Component({
   selector: 'app-liste-direction',
@@ -12,13 +12,15 @@ import { DirectionService } from '../../service/direction.service'; // Ensure th
   providers: [DirectionService],
 })
 export class ListeDirectionComponent implements OnInit {
-  directions: Direction[] = [];
-  message: string = '';
+  @Input() directions: Direction[] = []; // Définir comme @Input
+  @Input() message: string = ''; // Définir comme @Input
 
   constructor(private directionService: DirectionService) {}
 
   ngOnInit(): void {
-    this.loadDirections();
+    if (!this.directions.length) {
+      this.loadDirections(); // Charge les directions si non fournies
+    }
   }
 
   loadDirections() {
