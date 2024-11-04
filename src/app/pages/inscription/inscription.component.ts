@@ -7,10 +7,10 @@ import {
   Validators,
 } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ButtonComponent } from '../../components/button/button.component';
-import { LienversComponent } from '../../components/lienvers/lienvers.component';
 import { Utilisateur } from '../../models/utilisateur.model';
-import { AuthService } from '../../service/auth.service';
+import { AuthService } from '../../services/auth/auth.service';
+import { CustomLienComponent } from '../../components/ui/custom-lien/custom-lien.component';
+import { CustomBtnComponent } from '../../components/ui/custom-btn/custom-btn.component';
 
 @Component({
   selector: 'app-inscription',
@@ -18,11 +18,10 @@ import { AuthService } from '../../service/auth.service';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    ButtonComponent,
-    LienversComponent,
+    CustomLienComponent,
+    CustomBtnComponent,
   ],
   templateUrl: './inscription.component.html',
-  styleUrls: ['./inscription.component.css'],
 })
 export class InscriptionComponent {
   inscriptionForm: FormGroup;

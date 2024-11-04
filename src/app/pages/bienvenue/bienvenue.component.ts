@@ -1,11 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { LienversComponent } from '../../components/lienvers/lienvers.component';
-import { ProfilComponent } from '../../components/profil/profil.component';
-
-import { FooterComponent } from '../../components/footer/footer.component';
-import { SubcriberComponent } from '../../components/subcriber/subcriber.component';
-import { HeroComponent } from '../../components/hero/hero.component';
+import { FooterComponent } from '../../components/body/footer/footer.component';
+import { HeroComponent } from '../../components/body/hero/hero.component';
+import { SubcriberComponent } from '../../components/body/subcriber/subcriber.component';
+import { ProfilComponent } from '../../components/ui/profil/profil.component';
+import { EquipedevComponent } from "../../components/body/equipedev/equipedev.component";
 
 @Component({
   selector: 'app-bienvenue',
@@ -13,13 +12,12 @@ import { HeroComponent } from '../../components/hero/hero.component';
   imports: [
     CommonModule,
     ProfilComponent,
-    LienversComponent,
     FooterComponent,
     SubcriberComponent,
     HeroComponent,
-  ],
+    EquipedevComponent
+],
   templateUrl: './bienvenue.component.html',
-  styleUrl: './bienvenue.component.css',
 })
 export class BienvenueComponent {
   logout() {

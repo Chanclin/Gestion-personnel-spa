@@ -24,14 +24,16 @@
       (ngSubmit)="onSubmit()"
       class="max-w-[420px] mx-auto"
     >
+      <!-- Message d'erreur -->
+      <div *ngIf="errorMessage" class="p-8 mb-4 text-white bg-red-5OO">
+        {{ errorMessage }}
+      </div>
+
       <div class="mb-8">
         <h3 class="text-3xl font-extrabold text-gray-800">Inscription</h3>
         <p class="mt-4 text-sm text-gray-800">
           Vous avez déjà un compte?
-          <app-lienvers
-            [navigateTo]="'Connexion'"
-            textlien="Connectez-vous ici"
-          ></app-lienvers>
+          <app-custom-lien route="connexion" label="Connectez-vous ici" />
         </p>
       </div>
 
@@ -111,16 +113,12 @@
 
       <!-- Bouton de soumission -->
       <div class="mt-8">
-        <app-button
-          type="submit"
+        <app-custom-btn
+          [type]="'submit'"
           [disabled]="inscriptionForm.invalid"
-          [buttonColor]="inscriptionForm.invalid ? '#cccccc' : '#007bff'"
-          textBtn="Inscription"
-        ></app-button>
-      </div>
-      <!-- Message d'erreur -->
-      <div *ngIf="errorMessage" class="mt-4 text-red-500">
-        {{ errorMessage }}
+          [bgColor]="inscriptionForm.invalid ? 'bg-gray-400' : 'bg-indigo-600'"
+          label="Connexion"
+        />
       </div>
     </form>
   </div>

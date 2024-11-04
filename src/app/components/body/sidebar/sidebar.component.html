@@ -1,0 +1,138 @@
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+/>
+
+<aside
+  class="fixed top-0 left-0 z-40 w-64 h-screen gap-12 transition-transform -translate-x-full bg-[#1c2434] sm:translate-x-0"
+>
+  <div class="flex flex-col gap-2 px-4">
+    <ul class="flex flex-col gap-2 p-2 list-none">
+      <li
+        class="pl-3 flex items-center text-white gap-2 transition-all duration-300 p-1 rounded cursor-pointer bg-indigo-600 hover:text-white transform hover:translate-y-[-1px]"
+      >
+        <i class="bi bi-speedometer2" style="font-size: 25px; color: #fff"></i>
+        <app-custom-lien
+          label="Dashboard"
+          textDecor="uppercase"
+          route="accueil/dashboard"
+          textFont="font-semibold"
+        />
+      </li>
+    </ul>
+    <div class="border-2 border-t border-gray-700"></div>
+
+    <ul class="flex flex-col gap-2 p-2 list-none">
+      <li>
+        <button
+          type="button"
+          class="hover:text-white transform hover:translate-y-[-1px] flex items-center px-1 py-2 pl-3 font-semibold text-gray-400 transition-all duration-300 rounded hover:bg-[#3a4a6b33] gap-x-24"
+          (click)="basculerMenu()"
+        >
+          Entreprises
+
+          <i class="text-gray-400 bi bi-chevron-down"></i>
+        </button>
+
+        <ul class="px-1 py-2 space-y-2" *ngIf="estMenuOuvert">
+          <li
+            class="flex items-center text-gray-400 gap-2 transition-all duration-300 px-7 py-2 rounded cursor-pointer hover:bg-[#3a4a6b33] hover:text-white transform hover:translate-y-[-1px]"
+          >
+            <app-custom-lien
+              label="Ajouter"
+              route="accueil/entreprises/ajouter"
+              textFont="font-semibold"
+            />
+          </li>
+          <li
+            class="flex items-center text-gray-400 gap-2 transition-all duration-300 px-7 py-2 rounded cursor-pointer hover:bg-[#3a4a6b33] hover:text-white transform hover:translate-y-[-1px]"
+          >
+            <app-custom-lien
+              label="Vos entreprises"
+              route="accueil/entreprises/"
+              textFont="font-semibold"
+            />
+          </li>
+        </ul>
+      </li>
+      <li>
+        <button
+          type="button"
+          class="hover:text-white flex items-center px-1 py-2 pl-3 font-semibold text-gray-400 transition-all duration-300 rounded hover:bg-[#3a4a6b33] gap-x-[103px] transform hover:translate-y-[-1px]"
+          (click)="basculerMenu1()"
+        >
+          Directions
+
+          <i class="text-gray-400 bi bi-chevron-down"></i>
+        </button>
+
+        <ul class="px-1 py-2 space-y-2" *ngIf="estMenuOuvert1">
+          <li
+            class="flex items-center text-gray-400 gap-2 transition-all duration-300 px-7 py-2 rounded cursor-pointer hover:bg-[#3a4a6b33] hover:text-white transform hover:translate-y-[-1px]"
+          >
+            <app-custom-lien
+              label="Ajouter"
+              route="accueil/directions/ajouter"
+              textFont="font-semibold"
+            />
+          </li>
+          <li
+            class="flex items-center text-gray-400 gap-2 transition-all duration-300 px-7 py-2 rounded cursor-pointer hover:bg-[#3a4a6b33] hover:text-white transform hover:translate-y-[-1px]"
+          >
+            <app-custom-lien
+              label="Vos directions"
+              route="accueil/directions"
+              textFont="font-semibold"
+            />
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+    <div class="border-2 border-t border-gray-700"></div>
+    <ul class="flex flex-col gap-2 p-2 list-none">
+      <li
+        class="flex items-center text-gray-400 gap-2 transition-all duration-300 p-1 rounded cursor-pointer hover:bg-[#3a4a6b33] hover:text-white transform hover:translate-y-[-1px]"
+      >
+        <i
+          class="bi bi-box-arrow-right"
+          style="font-size: 25px; color: #7e8590"
+        ></i>
+        <app-custom-lien
+          label="Déconnexion"
+          route="logout"
+          textFont="font-semibold"
+        />
+      </li>
+
+      <li
+        class="flex items-center text-gray-400 gap-2 transition-all duration-300 p-1 rounded cursor-pointer hover:bg-[#3a4a6b33] hover:text-white transform hover:translate-y-[-1px]"
+      >
+        <i
+          class="bi bi-question-circle"
+          style="font-size: 25px; color: #7e8590"
+        ></i>
+
+        <app-custom-lien
+          label="Support/Aide"
+          route="accueil/aide"
+          textFont="font-semibold"
+        />
+      </li>
+
+      <ul class="">
+        <li
+          class="flex items-center text-gray-400 gap-2 transition-all duration-300 p-1 rounded cursor-pointer hover:bg-[#3a4a6b33] hover:text-white transform hover:translate-y-[-1px]"
+        >
+          <i class="bi bi-people" style="font-size: 25px; color: #7e8590"></i>
+
+          <app-custom-lien
+            label="Dévélopper par"
+            route="accueil/dev"
+            textFont="font-semibold"
+          />
+        </li>
+      </ul>
+    </ul>
+  </div>
+</aside>

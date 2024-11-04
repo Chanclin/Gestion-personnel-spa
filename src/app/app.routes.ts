@@ -1,91 +1,86 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { CreateDirectionComponent } from './components/create-direction/create-direction.component';
-import { CreateEntrepriseComponent } from './components/create-entreprise/create-entreprise.component';
-import { DeleteEntrepriseComponent } from './components/delete-entreprise/delete-entreprise.component';
-import { DetailEntrepriseComponent } from './components/detail-entreprise/detail-entreprise.component';
-import { ListeDirectionComponent } from './components/liste-direction/liste-direction.component';
-import { ListeEntrepriseComponent } from './components/liste-entreprise/liste-entreprise.component';
-import { UpdateEntrepriseComponent } from './components/update-entreprise/update-entreprise.component';
+import { Routes } from '@angular/router';
+import { DashboardComponent } from './components/body/dashboard/dashboard.component';
+import { FormDirectionComponent } from './components/direction/form-direction/form-direction.component';
+import { ListeDirectionsComponent } from './components/direction/liste-directions/liste-directions.component';
+import { DetailsEntrepriseComponent } from './components/entreprise/details-entreprise/details-entreprise.component';
+import { FormEntrepriseComponent } from './components/entreprise/form-entreprise/form-entreprise.component';
+import { ListeEntreprisesComponent } from './components/entreprise/liste-entreprises/liste-entreprises.component';
+import { DevComponent } from './pages/dev/dev.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AccueilComponent } from './pages/accueil/accueil.component';
 import { BienvenueComponent } from './pages/bienvenue/bienvenue.component';
 import { ConnexionComponent } from './pages/connexion/connexion.component';
-import { InscriptionComponent } from './pages/inscription/inscription.component';
-import { NontrouveComponent } from './pages/nontrouve/nontrouve.component';
+import { IntrouvableComponent } from './pages/introuvable/introuvable.component';
 
-// Définition des routes
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'Bienvenue',
+    redirectTo: 'bienvenue',
     pathMatch: 'full',
   },
   {
-    path: 'Bienvenue',
+    path: 'bienvenue',
     component: BienvenueComponent,
   },
   {
-    path: 'Connexion',
+    path: 'connexion',
     component: ConnexionComponent,
   },
   {
-    path: 'Entreprises',
-    component: ListeEntrepriseComponent,
-  },
-
-  {
-    path: 'Accueil',
+    path: 'accueil',
     component: AccueilComponent,
     canActivate: [AuthGuard],
     children: [
       {
-        path: '', // Par défaut, affiche ListeEntreprise
-        component: ListeEntrepriseComponent,
+        path: '',
+        component: DashboardComponent,
       },
       {
-        path: 'Creer-entreprise',
-        component: CreateEntrepriseComponent,
+        path: 'dashboard',
+        component: DashboardComponent,
       },
       {
-        path: 'Creer-direction',
-        component: CreateDirectionComponent,
+        path: 'entreprises/ajouter',
+        component: FormEntrepriseComponent,
       },
       {
-        path: 'Entreprises',
-        component: ListeEntrepriseComponent,
-      },
-      {
-        path: 'Directions',
-        component: ListeDirectionComponent,
+        path: 'entreprises',
+        component: ListeEntreprisesComponent,
       },
 
       {
-        path: 'detail-entreprise/:idEntreprise',
-        component: DetailEntrepriseComponent,
+        path: 'directions', // Liste des directions
+        component: ListeDirectionsComponent,
       },
       {
-        path: 'update-entreprise/:idEntreprise',
-        component: UpdateEntrepriseComponent,
+        path: 'directions/ajouter', // Route pour ajouter une direction
+        component: FormDirectionComponent,
       },
       {
-        path: 'supprimer-entreprise/:idEntreprise',
-        component: DeleteEntrepriseComponent,
+        path: 'directions/modifier/:id', // Route pour modifier une direction existante
+        component: FormDirectionComponent,
+      },
+      {
+        path: 'entreprises/details/:id',
+        component: DetailsEntrepriseComponent,
+      },
+      {
+        path: 'entreprises/modifier/:id', // Route pour la modification
+        component: FormEntrepriseComponent,
+      },
+      {
+        path: 'dev',
+        component: DevComponent,
       },
     ],
   },
   {
-    path: 'Inscription',
-    component: InscriptionComponent,
-  },
-
-  {
     path: '**',
-    component: NontrouveComponent,
+    component: IntrouvableComponent,
   },
 ];
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
-})
-export class AppRoutingModule {} // Renommez la classe pour qu'elle reflète mieux son rôle
+// @NgModule({
+//   imports: [RouterModule.forRoot(routes)],
+//   exports: [RouterModule],
+// })
+// export class AppRoutingModule {}
