@@ -10,7 +10,7 @@
       <h2 class="mb-4 text-2xl font-bold text-gray-900">
         {{ isEditing ? "Modifier Entreprise" : "Créer Entreprise" }}
       </h2>
-      <form
+      <!-- <form
         [formGroup]="entrepriseForm"
         (ngSubmit)="submitForm()"
         class="flex flex-col"
@@ -26,6 +26,36 @@
           class="p-2 mb-4 text-gray-900 transition duration-150 ease-in-out bg-gray-100 border-0 rounded-md focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
         />
         <input
+          placeholder="Email"
+          type="email"
+          class="p-2 mb-4 text-gray-900 transition duration-150 ease-in-out bg-gray-100 border-0 rounded-md focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
+        />
+        <button
+          type="submit"
+          class="px-4 py-2 mt-4 font-bold text-white transition duration-150 ease-in-out bg-indigo-600 rounded-md hover:bg-indigo-800"
+        >
+          {{ isEditing ? "Modifier" : "Créer" }}
+        </button>
+      </form> -->
+      <form
+        [formGroup]="entrepriseForm"
+        (ngSubmit)="submitForm()"
+        class="flex flex-col"
+      >
+        <input
+          formControlName="nomEntreprise"
+          placeholder="Nom entreprise"
+          type="text"
+          class="p-2 mb-4 text-gray-900 transition duration-150 ease-in-out bg-gray-100 border-0 rounded-md focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
+        />
+        <input
+          formControlName="adresseEntreprise"
+          type="text"
+          placeholder="Adresse"
+          class="p-2 mb-4 text-gray-900 transition duration-150 ease-in-out bg-gray-100 border-0 rounded-md focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500"
+        />
+        <input
+          formControlName="emailEntreprise"
           placeholder="Email"
           type="email"
           class="p-2 mb-4 text-gray-900 transition duration-150 ease-in-out bg-gray-100 border-0 rounded-md focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500"

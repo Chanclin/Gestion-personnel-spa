@@ -33,6 +33,40 @@ export class FormEntrepriseComponent implements OnInit {
     });
   }
 
+  submitForm(): void {
+    if (this.entrepriseForm.invalid) {
+      console.error('Formulaire invalide');
+      return;
+    }
+
+    console.log('Données du formulaire :', this.entrepriseForm.value);
+
+    if (this.isEditing) {
+      this.entrepriseService
+        .modifierEntreprise(this.entrepriseId!, this.entrepriseForm.value)
+        .subscribe({
+          next: () => {
+            this.router.navigate(['accueil/entreprises']);
+          },
+          error: (error) => {
+            console.error('Erreur de modification:', error);
+          },
+        });
+    } else {
+      this.entrepriseService
+        .creerEntreprise(this.entrepriseForm.value)
+        .subscribe({
+          next: () => {
+            console.log('Entreprise créée avec succès');
+            this.router.navigate(['accueil/entreprises']);
+          },
+          error: (error) => {
+            console.error('Erreur de création:', error);
+          },
+        });
+    }
+  }
+
   ngOnInit(): void {
     this.entrepriseId = +this.route.snapshot.paramMap.get('id')!;
     if (this.entrepriseId) {
@@ -41,22 +75,6 @@ export class FormEntrepriseComponent implements OnInit {
         .obtenirEntreprise(this.entrepriseId)
         .subscribe((entreprise) => {
           this.entrepriseForm.patchValue(entreprise);
-        });
-    }
-  }
-
-  submitForm(): void {
-    if (this.isEditing) {
-      this.entrepriseService
-        .modifierEntreprise(this.entrepriseId!, this.entrepriseForm.value)
-        .subscribe(() => {
-          this.router.navigate(['accueil/entreprises']);
-        });
-    } else {
-      this.entrepriseService
-        .creerEntreprise(this.entrepriseForm.value)
-        .subscribe(() => {
-          this.router.navigate(['accueil/entreprises']);
         });
     }
   }

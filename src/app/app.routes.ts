@@ -5,11 +5,12 @@ import { ListeDirectionsComponent } from './components/direction/liste-direction
 import { DetailsEntrepriseComponent } from './components/entreprise/details-entreprise/details-entreprise.component';
 import { FormEntrepriseComponent } from './components/entreprise/form-entreprise/form-entreprise.component';
 import { ListeEntreprisesComponent } from './components/entreprise/liste-entreprises/liste-entreprises.component';
-import { DevComponent } from './pages/dev/dev.component';
 import { AuthGuard } from './guards/auth.guard';
 import { AccueilComponent } from './pages/accueil/accueil.component';
 import { BienvenueComponent } from './pages/bienvenue/bienvenue.component';
 import { ConnexionComponent } from './pages/connexion/connexion.component';
+import { DevComponent } from './pages/dev/dev.component';
+import { InscriptionComponent } from './pages/inscription/inscription.component';
 import { IntrouvableComponent } from './pages/introuvable/introuvable.component';
 
 export const routes: Routes = [
@@ -25,6 +26,10 @@ export const routes: Routes = [
   {
     path: 'connexion',
     component: ConnexionComponent,
+  },
+  {
+    path: 'Inscription',
+    component: InscriptionComponent,
   },
   {
     path: 'accueil',

@@ -13,9 +13,7 @@ export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHttpClient(
-      withInterceptorsFromDi() // Utilisez cette fonction pour gérer les intercepteurs injectés via DI
-    ),
+    provideHttpClient(withInterceptorsFromDi()),
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     AuthGuard,
   ],

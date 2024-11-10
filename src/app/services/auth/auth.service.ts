@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router'; // Importer Router
+import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Utilisateur } from '../../models/utilisateur.model'; // Mettez à jour ce chemin en fonction de l'emplacement de votre modèle
@@ -12,7 +12,6 @@ export class AuthService {
   private loginUrl = 'http://localhost:8080/api/utilisateur/connexion';
   private registerUrl = 'http://localhost:8080/api/utilisateur/inscription';
 
-  // constructor(private http: HttpClient) {}
   constructor(private http: HttpClient, private router: Router) {} // Injecter Router
 
   inscription(utilisateur: Utilisateur): Observable<boolean> {
@@ -32,26 +31,12 @@ export class AuthService {
     );
   }
 
-  // connexion(username: string, password: string): Observable<boolean> {
-  //   const loginData = { username, password };
-  //   return this.http.post<any>(this.loginUrl, loginData).pipe(
-  //     map((response) => {
-  //       if (response && response.token) {
-  //         sessionStorage.setItem('authToken', response.token); // Stocker dans sessionStorage
-  //         return true;
-  //       }
-  //       return false;
-  //     })
-  //   );
-  // }
-
   connexion(username: string, password: string): Observable<boolean> {
     const loginData = { username, password };
     return this.http.post<any>(this.loginUrl, loginData).pipe(
       map((response) => {
         if (response && response.token) {
-          sessionStorage.setItem('authToken', response.token); // Stocker le token
-          sessionStorage.setItem('userName', response.email); // Stocker le nom de l'utilisateur
+          sessionStorage.setItem('authToken', response.token); // Stocker dans sessionStorage
           return true;
         }
         return false;

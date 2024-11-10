@@ -113,11 +113,11 @@
 
       <!-- Bouton de soumission -->
       <div class="mt-8">
-        <app-custom-btn
-          [type]="'submit'"
+        <app-button
+          type="submit"
           [disabled]="inscriptionForm.invalid"
-          [bgColor]="inscriptionForm.invalid ? 'bg-gray-400' : 'bg-indigo-600'"
-          label="Connexion"
+          [buttonColor]="inscriptionForm.invalid ? '#cccccc' : 'bg-indigo-600'"
+          label="Inscription"
         />
       </div>
     </form>
