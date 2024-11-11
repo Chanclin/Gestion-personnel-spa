@@ -18,11 +18,13 @@ export class AuthService {
     return this.http.post<any>(this.registerUrl, utilisateur).pipe(
       map((response) => {
         console.log("Réponse de l'API d'inscription :", response);
+        console.log("Contenu de response.success:", response?.success);
         if (response && response.success) {
-          this.router.navigate(['/Connexion']); // Assurez-vous que le chemin soit correct
-          return true; // Renvoyer true si l'inscription réussit
+          this.router.navigate(['/Connexion']);
+          return true;
         }
-        return false; // Renvoyer false si l'inscription échoue
+        console.log(" BAD:");
+        return false;
       }),
       catchError((error) => {
         console.error("Erreur lors de l'inscription :", error);
