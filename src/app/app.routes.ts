@@ -1,38 +1,93 @@
-import { RouterModule, RouterOutlet, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { CreateEntrepriseComponent } from './create-entreprise/create-entreprise.component';
-import { ListeEntrepriseComponent } from './services/liste-entreprise/liste-entreprise.component';
-import { UpdateEntrepriseComponent } from './update-entreprise/update-entreprise.component';
-import { DetailEntrepriseComponent } from './detail-entreprise/detail-entreprise.component';
-import { LoginComponent } from './page/login/login.component';
-import { RegisterComponent } from './page/register/register.component';
-import { NotfoundComponent } from './page/notfound/notfound.component';
 
-ListeEntrepriseComponent
+import { RouterModule, Routes } from '@angular/router';
+import { DashboardComponent } from './components/body/dashboard/dashboard.component';
+import { FormDirectionComponent } from './components/direction/form-direction/form-direction.component';
+import { ListeDirectionsComponent } from './components/direction/liste-directions/liste-directions.component';
+import { DetailsEntrepriseComponent } from './components/entreprise/details-entreprise/details-entreprise.component';
+import { FormEntrepriseComponent } from './components/entreprise/form-entreprise/form-entreprise.component';
+import { ListeEntreprisesComponent } from './components/entreprise/liste-entreprises/liste-entreprises.component';
+import { AuthGuard } from './guards/auth.guard';
+import { AccueilComponent } from './pages/accueil/accueil.component';
+import { BienvenueComponent } from './pages/bienvenue/bienvenue.component';
+import { ConnexionComponent } from './pages/connexion/connexion.component';
+import { DevComponent } from './pages/dev/dev.component';
+import { InscriptionComponent } from './pages/inscription/inscription.component';
+import { IntrouvableComponent } from './pages/introuvable/introuvable.component';
+
 export const routes: Routes = [
-    {
+  {
+    path: '',
+    redirectTo: 'bienvenue',
+    pathMatch: 'full',
+  },
+  {
+    path: 'bienvenue',
+    component: BienvenueComponent,
+  },
+  {
+    path: 'connexion',
+    component: ConnexionComponent,
+  },
+  {
+    path: 'Inscription',
+    component: InscriptionComponent,
+  },
+  {
+    path: 'accueil',
+    component: AccueilComponent,
+    canActivate: [AuthGuard],
+    children: [
+      {
         path: '',
-        redirectTo: 'login',
-        pathMatch: 'full',
+        component: DashboardComponent,
       },
       {
-        path: 'login',
-        component: LoginComponent,
+        path: 'dashboard',
+        component: DashboardComponent,
       },
       {
-        path: 'register',
-        component: RegisterComponent,
+        path: 'entreprises/ajouter',
+        component: FormEntrepriseComponent,
       },
       {
-        path: '**',
-        component: NotfoundComponent,
+        path: 'entreprises',
+        component: ListeEntreprisesComponent,
       },
 
-
+      {
+        path: 'directions', // Liste des directions
+        component: ListeDirectionsComponent,
+      },
+      {
+        path: 'directions/ajouter', // Route pour ajouter une direction
+        component: FormDirectionComponent,
+      },
+      {
+        path: 'directions/modifier/:id', // Route pour modifier une direction existante
+        component: FormDirectionComponent,
+      },
+      {
+        path: 'entreprises/details/:id',
+        component: DetailsEntrepriseComponent,
+      },
+      {
+        path: 'entreprises/modifier/:id', // Route pour la modification
+        component: FormEntrepriseComponent,
+      },
+      {
+        path: 'dev',
+        component: DevComponent,
+      },
+    ],
+  },
+  {
+    path: '**',
+    component: IntrouvableComponent,
+  },
 ];
-
 @NgModule({
-    imports:[RouterModule.forRoot(routes),RouterOutlet],
-    exports:[RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppComponent{}
+export class AppRoutingModule {}

@@ -1,0 +1,65 @@
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css"
+/>
+
+<div class="flex flex-col">
+  <div class="mt-2">
+    <app-navbar />
+  </div>
+
+  <div
+    class="mb-8 mt-5 overflow-x-auto sm:rounded-lg shadow-[0px_0px_15px_rgba(0,0,0,0.09)]"
+  >
+    <div class="flex items-center justify-start w-full p-4 bg-white">
+      <h2 class="text-lg font-semibold">Liste des Directions</h2>
+    </div>
+    <table
+      class="w-full mt-3 text-sm text-left text-gray-500 table-auto rtl:text-right"
+    >
+      <thead
+        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+      >
+        <tr>
+          <th scope="col" class="px-6 py-3">Nom</th>
+          <th scope="col" class="px-6 py-3">Description</th>
+          <th scope="col" class="px-6 py-3">ID Entreprise</th>
+          <th scope="col" class="px-6 py-3">
+            <span class="sr-only">Actions</span>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr
+          *ngFor="let direction of directions"
+          class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+        >
+          <td class="px-6 py-4">{{ direction.nomDirection }}</td>
+          <td class="px-6 py-4">{{ direction.description }}</td>
+          <td class="px-6 py-4">{{ direction.entrepriseId }}</td>
+          <td class="flex px-6 py-4 text-right">
+            <button
+              class="font-medium text-red-600 hover:underline btn btn-danger btn-sm me-2"
+              (click)="onDelete(direction)"
+            >
+              <i class="bi bi-trash"></i>
+            </button>
+
+            <button
+              class="font-medium text-blue-600 hover:underline btn btn-info btn-sm me-2"
+              (click)="onModify(direction)"
+            >
+              <i class="bi bi-pencil-square"></i>
+            </button>
+            <button
+              class="font-medium text-green-600 hover:underline btn btn-warning btn-sm me-2"
+              (click)="onDetails(direction.idDirection)"
+            >
+              <i class="bi bi-eye"></i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

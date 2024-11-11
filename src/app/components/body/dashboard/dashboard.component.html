@@ -1,0 +1,47 @@
+<div class="flex flex-col w-full h-full">
+  <div class="mt-2">
+    <app-navbar />
+  </div>
+  <div class="w-full h-full mt-5">
+    <div class="flex justify-between">
+      <div class="flex flex-wrap gap-5">
+        <app-box />
+        <app-box />
+        <app-box />
+      </div>
+      <div class="w-64 pr-6">
+        <h1 class="pl-2 text-xl font-semibold text-[#1c2434] mb-5">
+          Actions rapides
+        </h1>
+        <ul class="flex flex-col gap-4 p-2 list-none">
+          <li
+            class="flex items-center gap-2 transition-all duration-300 p-2 rounded cursor-pointer bg-indigo-600 text-white transform hover:translate-y-[-1px]"
+          >
+            <i
+              class="bi bi-plus-circle"
+              style="font-size: 25px; color: #fff"
+            ></i>
+            <app-custom-lien
+              label="Entreprise"
+              route="accueil/entreprises/ajouter"
+              textFont="font-semibold"
+            />
+          </li>
+          <li
+            class="flex items-center gap-2 transition-all duration-300 p-2 rounded cursor-pointer bg-indigo-600 text-white transform hover:translate-y-[-1px]"
+          >
+            <i
+              class="bi bi-plus-circle"
+              style="font-size: 25px; color: #fff"
+            ></i>
+            <app-custom-lien
+              label="Direction"
+              route="accueil/directions/ajouter"
+              textFont="font-semibold"
+            />
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

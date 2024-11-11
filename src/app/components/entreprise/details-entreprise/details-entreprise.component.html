@@ -1,0 +1,101 @@
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<div class="flex flex-col h-full">
+  <div class="mt-2">
+    <app-navbar />
+  </div>
+
+  <div class="w-full h-full mb-6">
+    <app-bouton-retour routeUrl="/accueil/entreprises"> </app-bouton-retour>
+
+    <div
+      class="container mt-4 border h-full shadow-[0px_0px_15px_rgba(0,0,0,0.09)]"
+      *ngIf="entreprise"
+    >
+      <h2 class="px-6 py-4 mb-4 text-2xl font-semibold text-gray-800">
+        Détails de l'Entreprise : {{ entreprise.nomEntreprise }}
+      </h2>
+
+      <div class="p-6 rounded-lg">
+        <table class="table w-full text-sm text-left text-gray-500">
+          <thead>
+            <tr class="bg-white">
+              <th class="px-4 py-2">Détail</th>
+              <th class="px-4 py-2">Information</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b">
+              <td class="px-4 py-3 font-semibold text-gray-700">
+                <i class="mr-2 text-blue-500 fa fa-id-badge"></i>
+                ID
+              </td>
+              <td class="px-4 py-3">
+                <span class="font-medium text-gray-900 dark:text-white">{{
+                  entreprise.idEntreprise
+                }}</span>
+              </td>
+            </tr>
+            <tr class="border-b">
+              <td
+                class="px-4 py-3 font-semibold text-gray-700 dark:text-gray-300"
+              >
+                <i class="mr-2 text-green-500 fa fa-building"></i>
+                Nom entreprise
+              </td>
+              <td class="px-4 py-3">
+                <span class="font-medium text-gray-900 dark:text-white">{{
+                  entreprise.nomEntreprise
+                }}</span>
+              </td>
+            </tr>
+            <tr class="border-b dark:border-gray-700">
+              <td
+                class="px-4 py-3 font-semibold text-gray-700 dark:text-gray-300"
+              >
+                <i class="mr-2 text-red-500 fa fa-map-marker"></i>
+                Adresse
+              </td>
+              <td class="px-4 py-3">
+                <span class="font-medium text-gray-900 dark:text-white">{{
+                  entreprise.adresseEntreprise
+                }}</span>
+              </td>
+            </tr>
+            <tr class="border-b dark:border-gray-700">
+              <td
+                class="px-4 py-3 font-semibold text-gray-700 dark:text-gray-300"
+              >
+                <i class="mr-2 text-yellow-500 fa fa-envelope"></i>
+                Email
+              </td>
+              <td class="px-4 py-3">
+                <span class="font-medium text-gray-900 dark:text-white">{{
+                  entreprise.emailEntreprise
+                }}</span>
+              </td>
+            </tr>
+            <tr class="bg-white dark:bg-gray-700">
+              <td colspan="2" class="px-4 py-3 font-semibold text-gray-700">
+                Directions associées
+              </td>
+            </tr>
+            <tr
+              *ngFor="let direction of entreprise.directions"
+              class="border-b dark:border-gray-700"
+            >
+              <td class="px-4 py-3">{{ direction.nomDirection }}</td>
+              <td class="px-4 py-3">{{ direction.description }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div *ngIf="!entreprise" class="mt-4">
+      Les détails de l'entreprise sont introuvables.
+    </div>
+  </div>
+</div>
