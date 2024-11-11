@@ -30,10 +30,24 @@ export class ListeDirectionsComponent implements OnInit {
     });
   }
 
+  // onModify(direction: Direction): void {
+  //   if (direction.idDirection != null) {
+  //     this.router.navigate(['/directions/modifier', direction.idDirection]);
+  //   } else {
+  //     console.error('idDirection est undefined');
+  //   }
+  // }
+
   onModify(direction: Direction): void {
+    console.log(
+      "Redirection vers le formulaire de modification avec l'ID :",
+      direction.idDirection
+    );
     if (direction.idDirection != null) {
-      // Utilisez != null pour couvrir undefined et null
-      this.router.navigate(['/directions/modifier', direction.idDirection]);
+      this.router.navigate([
+        '/accueil/directions/modifier',
+        direction.idDirection,
+      ]);
     } else {
       console.error('idDirection est undefined');
     }
