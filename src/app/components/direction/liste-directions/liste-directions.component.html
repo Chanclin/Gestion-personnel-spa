@@ -9,17 +9,21 @@
   </div>
 
   <div
-    class="mb-8 mt-5 bg-white overflow-x-auto sm:rounded-lg shadow-[0px_0px_15px_rgba(0,0,0,0.09)]"
+    class="mb-8 mt-5 overflow-x-auto sm:rounded-lg shadow-[0px_0px_15px_rgba(0,0,0,0.09)]"
   >
-    <h2 class="px-3 py-2 text-lg font-semibold">Liste des Directions</h2>
+    <div class="flex items-center justify-start w-full p-4 bg-white">
+      <h2 class="text-lg font-semibold">Liste des Directions</h2>
+    </div>
     <table
-      class="w-full text-sm text-left text-gray-500 table-auto rtl:text-right"
+      class="w-full mt-3 text-sm text-left text-gray-500 table-auto rtl:text-right"
     >
-      <thead class="text-xs text-gray-700 uppercase">
+      <thead
+        class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+      >
         <tr>
-          <th scope="col" class="px-6 py-3">Nom de la Direction</th>
+          <th scope="col" class="px-6 py-3">Nom</th>
           <th scope="col" class="px-6 py-3">Description</th>
-          <th scope="col" class="px-6 py-3">Entreprise</th>
+          <th scope="col" class="px-6 py-3">ID Entreprise</th>
           <th scope="col" class="px-6 py-3">
             <span class="sr-only">Actions</span>
           </th>
@@ -32,22 +36,19 @@
         >
           <td class="px-6 py-4">{{ direction.nomDirection }}</td>
           <td class="px-6 py-4">{{ direction.description }}</td>
-          <td class="px-6 py-4">
-            {{ entreprises.get(direction.idEntreprise) }}
-          </td>
+          <td class="px-6 py-4">{{ direction.entrepriseId }}</td>
           <td class="flex px-6 py-4 text-right">
             <button
-              class="font-medium text-green-600 hover:underline"
-              (click)="editDirection(direction.idDirection)"
+              class="font-medium text-blue-600 hover:underline btn btn-info btn-sm me-2"
+              (click)="onModify(direction)"
             >
-              <i class="bi bi-pencil-square"></i> Modifier
+              <i class="bi bi-pencil-square"></i>
             </button>
-            &nbsp;&nbsp;
             <button
-              class="font-medium text-red-600 hover:underline"
-              (click)="deleteDirection(direction.idDirection)"
+              class="font-medium text-green-600 hover:underline btn btn-warning btn-sm me-2"
+              (click)="onDetails(direction.idDirection)"
             >
-              <i class="bi bi-trash"></i> Supprimer
+              <i class="bi bi-eye"></i>
             </button>
           </td>
         </tr>

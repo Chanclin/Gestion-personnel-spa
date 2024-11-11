@@ -1,13 +1,6 @@
-export class Direction {
-  idDirection: number;
+export interface Direction {
+  idDirection?: number; // Supprimez le ? pour indiquer qu'il est toujours nécessaire
   nomDirection: string;
   description: string;
-  idEntreprise: number;
-
-  constructor() {
-    this.idDirection = 0;
-    this.nomDirection = '';
-    this.description = '';
-    this.idEntreprise = 0;
-  }
+  entrepriseId: number;
 }

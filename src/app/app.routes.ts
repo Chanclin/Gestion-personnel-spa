@@ -1,4 +1,6 @@
-import { Routes } from '@angular/router';
+import { NgModule } from '@angular/core';
+
+import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './components/body/dashboard/dashboard.component';
 import { FormDirectionComponent } from './components/direction/form-direction/form-direction.component';
 import { ListeDirectionsComponent } from './components/direction/liste-directions/liste-directions.component';
@@ -84,8 +86,8 @@ export const routes: Routes = [
     component: IntrouvableComponent,
   },
 ];
-// @NgModule({
-//   imports: [RouterModule.forRoot(routes)],
-//   exports: [RouterModule],
-// })
-// export class AppRoutingModule {}
+@NgModule({
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}

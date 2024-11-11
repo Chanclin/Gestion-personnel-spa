@@ -7,32 +7,32 @@ import { Direction } from '../../models/direction.model';
   providedIn: 'root',
 })
 export class DirectionService {
-  private baseUrl = 'http://localhost:8080/api/directions'; // Remplacez par votre URL d'API
+  private apiUrl = 'http://localhost:8080/api/directions'; // Remplacez par votre URL d'API
 
   constructor(private http: HttpClient) {}
 
   // Méthode pour lister toutes les directions
   listerDirections(): Observable<Direction[]> {
-    return this.http.get<Direction[]>(this.baseUrl);
+    return this.http.get<Direction[]>(this.apiUrl);
   }
 
-  // Méthode pour obtenir une direction par son ID
+  // Obtenir une direction par ID
   obtenirDirection(id: number): Observable<Direction> {
-    return this.http.get<Direction>(`${this.baseUrl}/${id}`);
+    return this.http.get<Direction>(`${this.apiUrl}/lister/${id}`);
   }
 
-  // Méthode pour créer une nouvelle direction
+  // Créer une nouvelle direction
   creerDirection(direction: Direction): Observable<Direction> {
-    return this.http.post<Direction>(this.baseUrl, direction);
+    return this.http.post<Direction>(`${this.apiUrl}`, direction);
   }
 
-  // Méthode pour modifier une direction
+  // Modifier une direction existante
   modifierDirection(id: number, direction: Direction): Observable<Direction> {
-    return this.http.put<Direction>(`${this.baseUrl}/${id}`, direction);
+    return this.http.put<Direction>(`${this.apiUrl}/modifier/${id}`, direction);
   }
 
-  // Méthode pour supprimer une direction
+  // Supprimer une direction par ID
   supprimerDirection(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.baseUrl}/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/supprimer/${id}`);
   }
 }

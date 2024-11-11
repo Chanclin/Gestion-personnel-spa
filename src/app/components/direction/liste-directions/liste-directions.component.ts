@@ -1,53 +1,63 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Direction } from '../../../models/direction.model';
 import { DirectionService } from '../../../services/direction/direction.service';
-import { EntrepriseService } from '../../../services/entreprise/entreprise.service';
 import { NavbarComponent } from '../../body/navbar/navbar.component';
+import { BoutonRetourComponent } from '../../ui/bouton-retour/bouton-retour.component';
 
 @Component({
   selector: 'app-liste-directions',
   standalone: true,
-  imports: [CommonModule, NavbarComponent],
+  imports: [CommonModule, NavbarComponent, BoutonRetourComponent],
   templateUrl: './liste-directions.component.html',
 })
-export class ListeDirectionsComponent {
+export class ListeDirectionsComponent implements OnInit {
   directions: Direction[] = [];
-  entreprises: Map<number, string> = new Map();
 
   constructor(
     private directionService: DirectionService,
-    private entrepriseService: EntrepriseService,
     private router: Router
   ) {}
 
   ngOnInit(): void {
-    this.loadDirections();
-    this.loadEntreprises();
+    this.fetchDirections();
   }
 
-  loadDirections(): void {
+  fetchDirections(): void {
     this.directionService.listerDirections().subscribe((data) => {
       this.directions = data;
     });
   }
 
-  loadEntreprises(): void {
-    this.entrepriseService.listerEntreprises().subscribe((data) => {
-      data.forEach((entreprise) => {
-        this.entreprises.set(entreprise.idEntreprise, entreprise.nomEntreprise);
-      });
-    });
+  onModify(direction: Direction): void {
+    if (direction.idDirection != null) {
+      // Utilisez != null pour couvrir undefined et null
+      this.router.navigate(['/directions/modifier', direction.idDirection]);
+    } else {
+      console.error('idDirection est undefined');
+    }
   }
 
-  deleteDirection(id: number): void {
-    this.directionService.supprimerDirection(id).subscribe(() => {
-      this.loadDirections();
-    });
+  onDelete(direction: Direction): void {
+    if (direction.idDirection != null) {
+      this.directionService
+        .supprimerDirection(direction.idDirection)
+        .subscribe(() => {
+          this.directions = this.directions.filter(
+            (dir) => dir.idDirection !== direction.idDirection
+          );
+        });
+    } else {
+      console.error('idDirection est undefined');
+    }
   }
 
-  editDirection(id: number): void {
-    this.router.navigate(['/accueil/directions/modifier/', id]);
+  onDetails(id: number | undefined): void {
+    if (id != null) {
+      this.router.navigate(['/directions/details', id]);
+    } else {
+      console.error('id est undefined');
+    }
   }
 }
