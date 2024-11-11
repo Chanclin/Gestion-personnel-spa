@@ -30,14 +30,6 @@ export class ListeDirectionsComponent implements OnInit {
     });
   }
 
-  // onModify(direction: Direction): void {
-  //   if (direction.idDirection != null) {
-  //     this.router.navigate(['/directions/modifier', direction.idDirection]);
-  //   } else {
-  //     console.error('idDirection est undefined');
-  //   }
-  // }
-
   onModify(direction: Direction): void {
     console.log(
       "Redirection vers le formulaire de modification avec l'ID :",
@@ -53,15 +45,34 @@ export class ListeDirectionsComponent implements OnInit {
     }
   }
 
+  // onDelete(direction: Direction): void {
+  //   if (direction.idDirection != null) {
+  //     this.directionService
+  //       .supprimerDirection(direction.idDirection)
+  //       .subscribe(() => {
+  //         this.directions = this.directions.filter(
+  //           (dir) => dir.idDirection !== direction.idDirection
+  //         );
+  //       });
+  //   } else {
+  //     console.error('idDirection est undefined');
+  //   }
+  // }
+
   onDelete(direction: Direction): void {
     if (direction.idDirection != null) {
-      this.directionService
-        .supprimerDirection(direction.idDirection)
-        .subscribe(() => {
-          this.directions = this.directions.filter(
-            (dir) => dir.idDirection !== direction.idDirection
-          );
-        });
+      const confirmation = window.confirm(
+        'Êtes-vous sûr de vouloir supprimer cette direction ?'
+      );
+      if (confirmation) {
+        this.directionService
+          .supprimerDirection(direction.idDirection)
+          .subscribe(() => {
+            this.directions = this.directions.filter(
+              (dir) => dir.idDirection !== direction.idDirection
+            );
+          });
+      }
     } else {
       console.error('idDirection est undefined');
     }

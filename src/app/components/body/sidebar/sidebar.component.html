@@ -91,7 +91,7 @@
 
     <div class="border-2 border-t border-gray-700"></div>
     <ul class="flex flex-col gap-2 p-2 list-none">
-      <li
+      <!-- <li
         class="flex items-center text-gray-400 gap-2 transition-all duration-300 p-1 rounded cursor-pointer hover:bg-[#3a4a6b33] hover:text-white transform hover:translate-y-[-1px]"
       >
         <i
@@ -103,6 +103,36 @@
           route="logout"
           textFont="font-semibold"
         />
+      </li> -->
+
+      <!-- <li
+        class="flex items-center text-gray-400 gap-2 transition-all duration-300 p-1 rounded cursor-pointer hover:bg-[#3a4a6b33] hover:text-white transform hover:translate-y-[-1px]"
+        (click)="onLogout()"
+      >
+        <i
+          class="bi bi-box-arrow-right"
+          style="font-size: 25px; color: #7e8590"
+        ></i>
+        <app-custom-lien
+          label="Déconnexion"
+          route="logout"
+          textFont="font-semibold"
+        />
+      </li> -->
+
+      <li
+        class="flex items-center text-gray-400 gap-2 transition-all duration-300 p-1 rounded cursor-pointer hover:bg-[#3a4a6b33] hover:text-white transform hover:translate-y-[-1px]"
+      >
+        <button
+          (click)="onLogout()"
+          class="flex items-center gap-2 font-semibold text-left text-gray-400 hover:text-white"
+        >
+          <i
+            class="bi bi-box-arrow-right"
+            style="font-size: 25px; color: #7e8590"
+          ></i>
+          Déconnexion
+        </button>
       </li>
 
       <li

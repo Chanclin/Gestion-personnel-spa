@@ -18,8 +18,9 @@ export class SidebarComponent implements OnInit {
 
   onLogout() {
     this.authService.logout();
-    this.router.navigate(['/Connexion']);
+    this.router.navigate(['/connexion']);
   }
+
   estMenuOuvert = false; // Variable de contrôle pour afficher ou cacher le menu déroulant
 
   basculerMenu() {
