@@ -4,13 +4,15 @@ import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { Utilisateur } from '../../models/utilisateur.model'; // Mettez à jour ce chemin en fonction de l'emplacement de votre modèle
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  private loginUrl = 'http://localhost:8080/api/utilisateur/connexion';
-  private registerUrl = 'http://localhost:8080/api/utilisateur/inscription';
+  private apiUrl = environment.apiUrl;
+  private loginUrl = `${this.apiUrl}/api/utilisateur/connexion`;
+  private registerUrl = `${this.apiUrl}/api/utilisateur/inscription`;
 
   constructor(private http: HttpClient, private router: Router) {} // Injecter Router
 
