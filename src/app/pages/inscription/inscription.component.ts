@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import {
+  AbstractControl,
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
@@ -8,10 +9,9 @@ import {
 } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ButtonComponent } from '../../components/ui/button/button.component';
-import { CustomBtnComponent } from '../../components/ui/custom-btn/custom-btn.component';
-import { CustomLienComponent } from '../../components/ui/custom-lien/custom-lien.component';
 import { Utilisateur } from '../../models/utilisateur.model';
 import { AuthService } from '../../services/auth/auth.service';
+import { LienversComponent } from '../../components/ui/lienvers/lienvers.component';
 
 @Component({
   selector: 'app-inscription',
@@ -19,9 +19,8 @@ import { AuthService } from '../../services/auth/auth.service';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    CustomLienComponent,
-    CustomBtnComponent,
     ButtonComponent,
+    LienversComponent,
   ],
   templateUrl: './inscription.component.html',
 })
@@ -37,10 +36,36 @@ export class InscriptionComponent {
     this.inscriptionForm = this.formBuilder.group({
       nom: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]],
+      password: [
+        '',
+        [Validators.required, Validators.minLength(8), this.passwordValidator],
+      ],
     });
   }
 
+  /**
+   * Validateur personnalisé pour les mots de passe
+   */
+  passwordValidator(control: AbstractControl) {
+    const value = control.value;
+    const hasNumber = /[0-9]/.test(value);
+    const hasUpper = /[A-Z]/.test(value);
+    const hasLower = /[a-z]/.test(value);
+    const hasSpecial = /[!@#$%^&*(),.?":{}|<>]/.test(value);
+    const valid = hasNumber && hasUpper && hasLower && hasSpecial;
+
+    if (!valid) {
+      return {
+        invalidPassword:
+          'Le mot de passe doit contenir au moins une majuscule, une minuscule, un chiffre et un caractère spécial.',
+      };
+    }
+    return null;
+  }
+
+  /**
+   * Soumission du formulaire
+   */
   onSubmit(): void {
     if (this.inscriptionForm.valid) {
       const utilisateur: Utilisateur = {

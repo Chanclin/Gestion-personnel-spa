@@ -1,29 +1,31 @@
-<div
-  class="flex bg-[url('https://pagedone.io/asset/uploads/1691055810.png')] bg-center bg-cover"
->
-  <div
-    class="p-8 hidden content-center rounded-r-[80px] lg:block lg:col-span-2 md:h-screen w-[60%] bg-indigo-600"
-  >
-    <div class="bg-white py-6 lg:py-8 px-3 rounded-r-[30px]">
-      <p
-        class="mb-6 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl"
-      >
+<div class="flex bg-[url('https://pagedone.io/asset/uploads/1691055810.png')] bg-center bg-cover">
+  <div class="p-8 hidden lg:flex flex-col justify-center rounded-r-[80px] lg:col-span-2 md:h-screen w-full lg:w-[60%] bg-indigo-600">
+  <div class="bg-white py-6 lg:py-8 px-6 sm:px-8 rounded-r-[30px] h-full flex flex-col items-center">
+    <!-- Image placée en haut -->
+    <div class="w-full flex justify-center mb-6">
+      <img 
+        src="/assets/signup-image.jpg" 
+        alt="Sign-up Illustration" 
+        class="w-auto h-48 max-h-60 object-contain rounded-lg"
+      />
+    </div>
+
+    <!-- Texte de bienvenue -->
+    <div class="text-center">
+      <p class="mb-6 text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
         Hey, bienvenue parmi nous !
       </p>
-      <p
-        class="max-w-2xl mx-auto mb-8 font-light text-gray-800 md:mb-12 sm:text-xl"
-      >
+      <p class="max-w-2xl mx-auto font-light text-gray-800 sm:text-xl">
         Inscrivez-vous et commencez à gérer votre entreprise facilement.
       </p>
     </div>
   </div>
+</div>
+
 
   <div class="content-center w-full p-6">
-    <form
-      [formGroup]="inscriptionForm"
-      (ngSubmit)="onSubmit()"
-      class="max-w-[420px] mx-auto"
-    >
+    
+    <form [formGroup]="inscriptionForm" (ngSubmit)="onSubmit()" class="max-w-[420px] mx-auto">
       <!-- Message d'erreur -->
       <div *ngIf="errorMessage" class="p-8 mb-4 text-white bg-red-5OO">
         {{ errorMessage }}
@@ -33,24 +35,19 @@
         <h3 class="text-3xl font-extrabold text-gray-800">Inscription</h3>
         <p class="mt-4 text-sm text-gray-800">
           Vous avez déjà un compte?
-          <app-custom-lien route="connexion" label="Connectez-vous ici" />
+          <app-lienvers [navigateTo]="'connexion'" textlien="Connectez-vous ici"></app-lienvers>
         </p>
       </div>
 
       <!-- Champ Nom -->
       <div class="flex flex-col">
         <div class="relative flex items-center mb-4 rounded-full shadow-lg">
-          <input
-            formControlName="nom"
-            type="text"
+          <input formControlName="nom" type="text"
             class="rounded-full bg-indigo-50 outline-indigo-600 w-full text-sm text-gray-800 focus:bg-transparent px-4 py-3.5"
-            placeholder="Entrez votre nom"
-          />
+            placeholder="Entrez votre nom" />
         </div>
-        <div
-          *ngIf="inscriptionForm.get('nom')?.errors?.['required'] && inscriptionForm.get('nom')?.touched"
-          class="mb-2 text-xs text-red-500"
-        >
+        <div *ngIf="inscriptionForm.get('nom')?.errors?.['required'] && inscriptionForm.get('nom')?.touched"
+          class="mb-2 text-xs text-red-500">
           Le nom est requis.
         </div>
       </div>
@@ -58,23 +55,16 @@
       <!-- Champ Email -->
       <div class="flex flex-col">
         <div class="relative flex items-center mb-4 rounded-full shadow-lg">
-          <input
-            formControlName="email"
-            type="email"
+          <input formControlName="email" type="email"
             class="rounded-full w-full text-sm text-gray-800 focus:bg-transparent px-4 py-3.5 bg-indigo-50 outline-indigo-600"
-            placeholder="Entrez votre email"
-          />
+            placeholder="Entrez votre email" />
         </div>
-        <div
-          *ngIf="inscriptionForm.get('email')?.errors?.['required'] && inscriptionForm.get('email')?.touched"
-          class="mb-2 text-xs text-red-500"
-        >
+        <div *ngIf="inscriptionForm.get('email')?.errors?.['required'] && inscriptionForm.get('email')?.touched"
+          class="mb-2 text-xs text-red-500">
           L'adresse email est requise.
         </div>
-        <div
-          *ngIf="inscriptionForm.get('email')?.errors?.['email'] && inscriptionForm.get('email')?.touched"
-          class="mb-2 text-xs text-red-500"
-        >
+        <div *ngIf="inscriptionForm.get('email')?.errors?.['email'] && inscriptionForm.get('email')?.touched"
+          class="mb-2 text-xs text-red-500">
           Entrez une adresse email valide.
         </div>
       </div>
@@ -82,43 +72,31 @@
       <!-- Champ Mot de passe -->
       <div class="flex flex-col">
         <div class="flex flex-col items-center mb-3 rounded-full shadow-lg">
-          <input
-            formControlName="password"
-            type="password"
+          <input formControlName="password" type="password"
             class="w-full text-sm text-gray-800 focus:bg-transparent px-4 py-3.5 rounded-full bg-indigo-50 outline-indigo-600"
-            placeholder="Entrez un mot de passe"
-          />
+            placeholder="Entrez un mot de passe" />
         </div>
-        <div
-          *ngIf="inscriptionForm.get('password')?.errors?.['required'] && inscriptionForm.get('password')?.touched"
-          class="text-xs text-red-500"
-        >
+        <div *ngIf="inscriptionForm.get('password')?.errors?.['required'] && inscriptionForm.get('password')?.touched"
+          class="text-xs text-red-500">
           Le mot de passe est requis.
         </div>
-        <div
-          *ngIf="inscriptionForm.get('password')?.errors?.['minlength'] && inscriptionForm.get('password')?.touched"
-          class="text-xs text-red-500"
-        >
+        <div *ngIf="inscriptionForm.get('password')?.errors?.['minlength'] && inscriptionForm.get('password')?.touched"
+          class="text-xs text-red-500">
           Le mot de passe doit contenir au moins
           {{ inscriptionForm.get('password')?.errors?.['minlength'].requiredLength }}
           caractères.
         </div>
         <div
           *ngIf="inscriptionForm.get('password')?.errors?.['invalidPassword'] && inscriptionForm.get('password')?.touched"
-          class="text-xs text-red-500"
-        >
+          class="text-xs text-red-500">
           {{ inscriptionForm.get('password')?.errors?.['invalidPassword'] }}
         </div>
       </div>
 
       <!-- Bouton de soumission -->
       <div class="mt-8">
-        <app-button
-          type="submit"
-          [disabled]="inscriptionForm.invalid"
-          [buttonColor]="inscriptionForm.invalid ? '#cccccc' : 'bg-indigo-600'"
-          textBtn="Inscription"
-        />
+        <app-button type="submit" [disabled]="inscriptionForm.invalid"
+          [buttonColor]="inscriptionForm.invalid ? '#cccccc' : 'bg-indigo-600'" textBtn="Inscription" />
       </div>
     </form>
   </div>
